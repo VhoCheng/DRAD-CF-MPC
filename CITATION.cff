@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical Power Systems"
+message: "If you use this code, please cite the associated paper."
+type: software
+authors:
+  - family-names: Cheng
+    given-names: Weihao
+  - family-names: Tu
+    given-names: Haicheng
+  - family-names: Xia
+    given-names: Yongxiang
+  - family-names: Chen
+    given-names: Xi
+license: Apache-2.0
+repository-code: "https://github.com/<your-username>/DRAD-CF-MPC"
+date-released: 2026-07-03
