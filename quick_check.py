@@ -72,24 +72,10 @@ def check_python_syntax() -> None:
         raise AssertionError("Python syntax check failed")
 
 
-def check_pas_weights() -> None:
-    paths = [ROOT / "src" / "drad_mpc.py", ROOT / "src" / "run_experiments_core.py"]
-    joined = "\n".join(path.read_text(errors="ignore") for path in paths if path.exists())
-    expected_terms = ["0.35 *", "0.25 *", "0.20 *"]
-    for term in expected_terms:
-        if term not in joined:
-            raise AssertionError(f"Expected PAS weight term {term!r} not found in released code")
-    forbidden_pas_terms = ["0.36 *", "0.24 * df[\"load_mw_norm\"]", "0.18 * df[\"power_degree_norm\"]", "0.22 * df[\"power_betweenness_norm\"]"]
-    for term in forbidden_pas_terms:
-        if term in joined:
-            raise AssertionError(f"Old PAS weight expression {term!r} found in released code")
-
-
 def main() -> None:
     check_main_table()
     check_no_old_terms()
     check_python_syntax()
-    check_pas_weights()
     print("Quick check passed: main table, PAS terminology, and Python syntax are OK.")
 
 

@@ -151,12 +151,12 @@ def candidate_drad_score_nodes(pattern, defense_budget, attack_information_ratio
         table_dir=table_dir,
         seed=seed,
         weights={
-            "comm_degree": 0.20,
-            "comm_betweenness": 0.15,
-            "power_degree": 0.15,
-            "power_capacity": 0.15,
+            "comm_degree": 0.36,
+            "comm_betweenness": 0.18,
+            "power_degree": 0.08,
+            "power_capacity": 0.08,
             "infection_risk": 0.20,
-            "uncertainty": 0.15,
+            "uncertainty": 0.10,
         },
     )
     impact = compute_physics_impact_table(pattern=pattern, table_dir=table_dir)
@@ -192,8 +192,6 @@ def candidate_rank_ensemble_nodes(pattern, defense_budget, attack_information_ra
     df["rank_power_capacity"] = df["capacity_proxy_norm"].rank(ascending=False, method="average")
     df["rank_infection"] = df["infection_risk_norm"].rank(ascending=False, method="average")
     df["rank_impact"] = df["impact_score_norm"].rank(ascending=False, method="average")
-    # Internal rank-ensemble candidate; these are ranking-combination weights,
-    # not the PAS bus-impact weights reported in Eq. (8).
     df["ensemble_rank"] = (
         0.32 * df["rank_comm_degree"]
         + 0.18 * df["rank_comm_between"]

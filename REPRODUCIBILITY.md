@@ -1,10 +1,10 @@
 # Reproducibility Notes
 
-This package is a lightweight public release. It keeps the core simulation code and the key tables used by the manuscript, while excluding historical intermediate outputs and large raw trace files that are not needed for a first GitHub release.
+This repository is a lightweight public release for the DRAD-CF-MPC manuscript. It includes the core simulation code, main result tables, selected figure data, manuscript source, and a quick integrity check.
 
-## Reported Main Table
+## Main Result Table
 
-The main strategy-level table in `outputs/tables/experiment_strategy_summary_parallel.csv` should round to:
+The strategy-level table in `outputs/tables/experiment_strategy_summary_parallel.csv` should round to:
 
 | Strategy | EPmax | PAS | RT | RI | RE |
 |---|---:|---:|---:|---:|---:|
@@ -16,11 +16,15 @@ The main strategy-level table in `outputs/tables/experiment_strategy_summary_par
 | RP | 0.567 | 0.611 | 11.529 | 0.647 | 0.244 |
 | NP | 0.786 | 0.848 | 17.968 | 0.449 | 0.152 |
 
-These values are checked by `quick_check.py`.
+These values are checked by:
 
-## Fixed PAS Weights
+```bash
+python quick_check.py
+```
 
-The released code uses:
+## PAS Proxy Weights
+
+The released code uses the fixed bus-impact weight vector:
 
 ```text
 load demand       0.35
@@ -29,9 +33,9 @@ power degree      0.20
 power betweenness 0.20
 ```
 
-The weight vector is fixed across all strategies and scenarios. The precomputed CSV files are preserved as the manuscript result tables.
+The same vector is used across all scenarios and strategies.
 
-## Full Rerun
+## Main Experiment
 
 Run:
 
@@ -39,4 +43,8 @@ Run:
 python src/05_run_experiments_parallel.py
 ```
 
-The reported configuration uses 10 Monte Carlo repetitions and 5 same-state counterfactual rollouts, matching Table II of the manuscript draft. A full rerun can take several hours.
+The reported configuration uses 50 Monte Carlo repetitions and 20 same-state counterfactual rollouts. A full rerun can take several hours.
+
+## Scope of This Release
+
+The release keeps the files needed for paper-level reproducibility and public inspection. Historical intermediate outputs, cache files, and large raw evolution traces are omitted to keep the GitHub repository compact.
