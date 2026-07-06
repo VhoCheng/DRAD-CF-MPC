@@ -4,8 +4,6 @@ Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical Power S
 
 This repository contains the code, key result tables, and manuscript source for **DRAD-CF-MPC**, a dynamic risk-aware counterfactual model predictive control framework for malware-resilient cyber-physical power systems (CPPSs).
 
-All figures shown in this README are figures that are explicitly referenced by `\includegraphics` in `paper/main.tex`. Historical or discarded manuscript figures are intentionally excluded from this public release.
-
 <p align="center">
   <img src="assets/framework.png" width="860" alt="Overall DRAD-CF-MPC framework">
 </p>
@@ -103,21 +101,9 @@ The main strategy-level comparison is stored in `outputs/tables/experiment_strat
 | RP | 0.567 | 0.611 | 11.529 | 0.647 | 0.244 |
 | NP | 0.786 | 0.848 | 17.968 | 0.449 | 0.152 |
 
-## Paper Figures Included in This Release
+## Paper-used Figures
 
-Only the following paper-used figures are included and visualized.
-
-### Figure 1: Overall Framework
-
-<p align="center">
-  <img src="assets/framework.png" width="860" alt="Overall framework">
-</p>
-
-### Malware Propagation and Protection Model
-
-<p align="center">
-  <img src="assets/malware_protection.png" width="760" alt="Malware propagation and protection">
-</p>
+The README shows each paper figure at most once. The overall framework and malware propagation/protection figures are already shown above, so this section visualizes the remaining paper-used evidence figures. Historical or discarded manuscript figures are intentionally excluded from this public release.
 
 ### Key-node Protection and Safe-Guarded Switching
 
