@@ -6,11 +6,13 @@ authors:
     given-names: Weihao
   - family-names: Tu
     given-names: Haicheng
+  - family-names: Ling
+    given-names: Youjia
   - family-names: Xia
     given-names: Yongxiang
   - family-names: Chen
     given-names: Xi
-date-released: "2026-07-05"
+date-released: "2026-07-06"
 version: "1.0.0"
 repository-code: "https://github.com/VhoCheng/DRAD-CF-MPC"
 type: software

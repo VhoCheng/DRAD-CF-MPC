@@ -1,6 +1,6 @@
 # Reproducibility Notes
 
-This repository is a lightweight public release for the DRAD-CF-MPC manuscript. It includes the core simulation code, main result tables, selected figure data, manuscript source, and a quick integrity check.
+This repository is a compact public release for the DRAD-CF-MPC manuscript. It includes the core simulation code, the main result tables, selected paper-used figure data, manuscript source, and a quick integrity check.
 
 ## Main Result Table
 
@@ -45,6 +45,6 @@ python src/05_run_experiments_parallel.py
 
 The reported configuration uses 50 Monte Carlo repetitions and 20 same-state counterfactual rollouts. A full rerun can take several hours.
 
-## Scope of This Release
+## Figure Scope
 
-The release keeps the files needed for paper-level reproducibility and public inspection. Historical intermediate outputs, cache files, and large raw evolution traces are omitted to keep the GitHub repository compact.
+The public repository includes only figures that are referenced by `\includegraphics` in `paper/main.tex`. Historical intermediate figures from previous manuscript revisions are excluded.

@@ -2,28 +2,31 @@
 
 Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical Power Systems
 
-This repository contains the simulation code, key result tables, and manuscript source for **DRAD-CF-MPC**, a dynamic risk-aware counterfactual model predictive control framework for malware-resilient cyber-physical power systems (CPPSs).
+This repository contains the code, key result tables, and manuscript source for **DRAD-CF-MPC**, a dynamic risk-aware counterfactual model predictive control framework for malware-resilient cyber-physical power systems (CPPSs).
+
+All figures shown in this README are figures that are explicitly referenced by `\includegraphics` in `paper/main.tex`. Historical or discarded manuscript figures are intentionally excluded from this public release.
 
 <p align="center">
-  <img src="assets/framework.png" width="860" alt="DRAD-CF-MPC framework">
+  <img src="assets/framework.png" width="860" alt="Overall DRAD-CF-MPC framework">
 </p>
 
 ## Highlights
 
-- **State-to-consequence modeling**: malware diffusion in the communication layer is linked to affected physical service and post-attack recovery burden.
-- **Interpretable candidate policies**: fixed baselines, dynamic risk-aware defense, and hybrid policies are evaluated under the same cyber-physical state.
-- **Counterfactual MPC selection**: candidate defenses are compared with same-state rollouts so policy switching is driven by scenario-specific evidence.
-- **Safe-Guarded adaptation**: the controller switches away from the strongest fixed baseline only when the counterfactual gain passes a conservative safeguard test.
-- **Reproducibility package**: the released tables preserve the manuscript values, and `quick_check.py` verifies the main table, terminology, and Python syntax.
+- **State-to-consequence modeling**: malware diffusion in the cyber layer is linked to affected physical service and restoration burden.
+- **Physics-aware affected service metric**: cyber infection is evaluated through a CPPS service-impact proxy rather than as a purely cyber count.
+- **Interpretable candidate defenses**: fixed baselines, dynamic risk-aware defense, and hybrid policies are evaluated under the same observed state.
+- **Counterfactual MPC selection**: candidate policies are compared with common-random-number rollouts from the same state.
+- **Safe-Guarded switching**: adaptive switching is accepted only when the predicted improvement over the baseline passes a conservative safeguard test.
+- **Compact reproducibility package**: the released tables preserve the manuscript results and `quick_check.py` verifies the main table and terminology.
 
 ## Repository Structure
 
 ```text
 DRAD-CF-MPC
-├── assets/                 # PNG figures used by this README
+├── assets/                 # README figures converted from paper-used figures only
 ├── logs/                   # main-run execution log
 ├── outputs/tables/         # released CSV tables used by the manuscript
-├── paper/                  # LaTeX manuscript and paper figures
+├── paper/                  # LaTeX manuscript and paper-used figures
 ├── src/                    # simulation and defense code
 ├── CITATION.cff
 ├── LICENSE
@@ -35,13 +38,13 @@ DRAD-CF-MPC
 
 ## Method Overview
 
-The malware process follows an SEID-style cyber-state model with an explicit protected state. Protected nodes are removed from infection and transmission in the current defense horizon.
+The malware process follows a protected SEID-style cyber-state model. Protected nodes are unavailable for infection and transmission in the current defense horizon.
 
 <p align="center">
   <img src="assets/malware_protection.png" width="760" alt="Malware propagation and protection model">
 </p>
 
-DRAD-CF-MPC evaluates candidate defense policies from the same observed cyber-physical state. Each policy is rolled out under common random seeds, scored by attacker payoff, affected service, restoration time, and resilience index, and then filtered by the Safe-Guard test before implementation.
+The proposed controller evaluates candidate defense policies from the same observed cyber-physical state, scores their counterfactual rollouts by degradation and recovery indicators, and implements adaptive switching only after the Safe-Guard test.
 
 ## Installation
 
@@ -56,7 +59,7 @@ pip install -r requirements.txt
 
 ## Quick Check
 
-Run a lightweight consistency check:
+Run:
 
 ```bash
 python quick_check.py
@@ -81,14 +84,14 @@ The reported configuration uses:
 | Setting | Value |
 |---|---:|
 | Monte Carlo repetitions per task | 50 |
-| Same-state counterfactual rollouts | 20 |
+| Same-state counterfactual rollouts per candidate | 20 |
 | Strategy-scenario-budget-timing tasks | 6930 |
 
-The full run can take several hours depending on hardware. The precomputed CSV files in `outputs/tables/` preserve the manuscript result values.
+The full run can take several hours depending on the machine. The released CSV files in `outputs/tables/` preserve the manuscript result values.
 
-## Main Results
+## Main Result Table
 
-The released main table is stored in `outputs/tables/experiment_strategy_summary_parallel.csv`.
+The main strategy-level comparison is stored in `outputs/tables/experiment_strategy_summary_parallel.csv`.
 
 | Strategy | Mean EPmax | Mean PAS | Mean RT | Mean RI | Mean RE |
 |---|---:|---:|---:|---:|---:|
@@ -100,34 +103,42 @@ The released main table is stored in `outputs/tables/experiment_strategy_summary
 | RP | 0.567 | 0.611 | 11.529 | 0.647 | 0.244 |
 | NP | 0.786 | 0.848 | 17.968 | 0.449 | 0.152 |
 
+## Paper Figures Included in This Release
+
+Only the following paper-used figures are included and visualized.
+
+### Figure 1: Overall Framework
+
 <p align="center">
-  <img src="assets/main_results.png" width="760" alt="Overall strategy-level performance">
+  <img src="assets/framework.png" width="860" alt="Overall framework">
 </p>
 
-## Paper Figures
+### Malware Propagation and Protection Model
 
-The paper figures used for the README are included in `assets/`; the original paper figure files are retained in `paper/figures/`.
+<p align="center">
+  <img src="assets/malware_protection.png" width="760" alt="Malware propagation and protection">
+</p>
+
+### Key-node Protection and Safe-Guarded Switching
 
 | Key-node evidence | Safe-Guarded switching |
 |---|---|
-| <img src="assets/key_node_evidence.png" width="420" alt="Key-node protection evidence"> | <img src="assets/safeguarded_switching.png" width="420" alt="Safe-Guarded switching evidence"> |
+| <img src="assets/key_node_evidence.png" width="420" alt="Key-node protection evidence"> | <img src="assets/safeguarded_switching.png" width="420" alt="Safe-Guarded policy switching"> |
 
-| Degradation-recovery dynamics | Sensitivity analysis |
+### Process Evidence and Sensitivity Analysis
+
+| Degradation-recovery process evidence | Sensitivity analysis |
 |---|---|
-| <img src="assets/dynamic_evolution.png" width="420" alt="Dynamic degradation and recovery"> | <img src="assets/sensitivity.png" width="420" alt="Sensitivity analysis"> |
+| <img src="assets/process_evidence.png" width="420" alt="Process evidence"> | <img src="assets/sensitivity.png" width="420" alt="Sensitivity analysis"> |
 
-<p align="center">
-  <img src="assets/interpretation.png" width="760" alt="Incremental interpretation of DRAD-CF-MPC">
-</p>
-
-## Released Data
+## Released Tables
 
 Important CSV files:
 
 - `outputs/tables/experiment_strategy_summary_parallel.csv`: main strategy-level comparison.
 - `outputs/tables/experiment_results_optimal_parallel.csv`: scenario-level optimal results.
 - `outputs/tables/experiment_results_raw_parallel.csv`: raw main-experiment strategy results.
-- `outputs/tables/figure*_used.csv`: figure-level data used in the manuscript.
+- `outputs/tables/figure*_used.csv`: released figure-level data used in the manuscript.
 - `outputs/tables/comm_features.csv`, `power_features.csv`, and `coupling_*.csv`: CPPS benchmark features and coupling maps.
 
 ## Manuscript Source
@@ -140,6 +151,16 @@ paper/cas-refs.bib
 paper/figures/
 ```
 
+The `paper/figures/` directory contains only the figures referenced by `paper/main.tex`.
+
+## Authors
+
+- Weihao Cheng
+- Haicheng Tu
+- Youjia Ling
+- Yongxiang Xia
+- Xi Chen
+
 ## Citation
 
 If you use this repository, please cite the accompanying manuscript:
@@ -147,7 +168,7 @@ If you use this repository, please cite the accompanying manuscript:
 ```bibtex
 @misc{cheng2026dradcfmpc,
   title  = {Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical Power Systems},
-  author = {Cheng, Weihao and Tu, Haicheng and Xia, Yongxiang and Chen, Xi},
+  author = {Cheng, Weihao and Tu, Haicheng and Ling, Youjia and Xia, Yongxiang and Chen, Xi},
   year   = {2026},
   note   = {Manuscript under review}
 }
