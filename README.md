@@ -111,11 +111,17 @@ The README shows each paper figure at most once. The overall framework and malwa
 |---|---|
 | <img src="assets/key_node_evidence.png" width="420" alt="Key-node protection evidence"> | <img src="assets/safeguarded_switching.png" width="420" alt="Safe-Guarded policy switching"> |
 
-### Process Evidence and Sensitivity Analysis
+### Degradation-recovery Process Evidence
 
-| Degradation-recovery process evidence | Sensitivity analysis |
-|---|---|
-| <img src="assets/process_evidence.png" width="420" alt="Process evidence"> | <img src="assets/sensitivity.png" width="420" alt="Sensitivity analysis"> |
+<p align="center">
+  <img src="./assets/process_evidence.png" width="760" alt="Degradation-recovery process evidence">
+</p>
+
+### Sensitivity Analysis
+
+<p align="center">
+  <img src="./assets/sensitivity_analysis.png" width="760" alt="Sensitivity analysis">
+</p>
 
 ## Released Tables
 
@@ -141,11 +147,13 @@ The `paper/figures/` directory contains only the figures referenced by `paper/ma
 
 ## Authors
 
-- Weihao Cheng
-- Haicheng Tu
-- Youjia Ling
-- Yongxiang Xia
-- Xi Chen
+| Author | Affiliation | Email |
+|---|---|---|
+| Weihao Cheng | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | weihao_cheng@hdu.edu.cn |
+| Haicheng Tu | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | tuhc@hdu.edu.cn |
+| Youjia Ling | School of Accounting, Hangzhou Dianzi University, Hangzhou 310018, China | lingyoujia@hdu.edu.cn |
+| Yongxiang Xia | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | xiayx@hdu.edu.cn |
+| Xi Chen | Department of Artificial Intelligence, China Electric Power Research Institute, Beijing 100192, China | xc@ieee.org |
 
 ## Citation
 

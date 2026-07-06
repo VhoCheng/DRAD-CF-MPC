@@ -4,14 +4,24 @@ title: "Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical
 authors:
   - family-names: Cheng
     given-names: Weihao
+    affiliation: "School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China"
+    email: "weihao_cheng@hdu.edu.cn"
   - family-names: Tu
     given-names: Haicheng
+    affiliation: "School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China"
+    email: "tuhc@hdu.edu.cn"
   - family-names: Ling
     given-names: Youjia
+    affiliation: "School of Accounting, Hangzhou Dianzi University, Hangzhou 310018, China"
+    email: "lingyoujia@hdu.edu.cn"
   - family-names: Xia
     given-names: Yongxiang
+    affiliation: "School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China"
+    email: "xiayx@hdu.edu.cn"
   - family-names: Chen
     given-names: Xi
+    affiliation: "Department of Artificial Intelligence, China Electric Power Research Institute, Beijing 100192, China"
+    email: "xc@ieee.org"
 date-released: "2026-07-06"
 version: "1.0.0"
 repository-code: "https://github.com/VhoCheng/DRAD-CF-MPC"
