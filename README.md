@@ -13,8 +13,6 @@
 
 **DRAD-CF-MPC** is a reproducibility package for a dynamic risk-aware counterfactual model predictive control framework for malware-resilient cyber-physical power systems (CPPSs). It releases the simulation code, key result tables, execution log, and paper-used figures needed to inspect the reported results without exposing draft-only manuscript artifacts.
 
-The public release intentionally excludes the LaTeX source file and BibTeX bibliography. Only figures used in the submitted manuscript are included.
-
 <p align="center">
   <img src="assets/framework.png" width="860" alt="Overall DRAD-CF-MPC framework">
 </p>
