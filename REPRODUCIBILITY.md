@@ -1,6 +1,6 @@
 # Reproducibility Notes
 
-This repository is a compact public release for the DRAD-CF-MPC manuscript. It includes the core simulation code, the main result tables, selected paper-used figure data, manuscript source, and a quick integrity check.
+This repository is a compact public release for the DRAD-CF-MPC manuscript. It includes the core simulation code, the main result tables, selected paper-used figure data, paper-used figures, an execution log, and a quick integrity check. The LaTeX source and BibTeX bibliography are intentionally excluded from this GitHub package.
 
 ## Main Result Table
 
@@ -47,4 +47,4 @@ The reported configuration uses 50 Monte Carlo repetitions and 20 same-state cou
 
 ## Figure Scope
 
-The public repository includes only figures that are referenced by `\includegraphics` in `paper/main.tex`. Historical intermediate figures from previous manuscript revisions are excluded.
+The public repository includes only figures used in the submitted manuscript. Historical intermediate figures from previous manuscript revisions are excluded.

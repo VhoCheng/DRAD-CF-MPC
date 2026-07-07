@@ -1,30 +1,41 @@
+<div align="center">
+
 # DRAD-CF-MPC
 
-Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical Power Systems
+**Safe-Guarded Counterfactual Defense for Malware-Resilient Cyber-Physical Power Systems**
 
-This repository contains the code, key result tables, and manuscript source for **DRAD-CF-MPC**, a dynamic risk-aware counterfactual model predictive control framework for malware-resilient cyber-physical power systems (CPPSs).
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](#-installation)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Reproducibility](https://img.shields.io/badge/Reproducibility-quick_check-brightgreen)](#-quick-check)
+[![Metric](https://img.shields.io/badge/Metric-PAS-orange)](#-main-result-table)
+
+</div>
+
+**DRAD-CF-MPC** is a reproducibility package for a dynamic risk-aware counterfactual model predictive control framework for malware-resilient cyber-physical power systems (CPPSs). It releases the simulation code, key result tables, execution log, and paper-used figures needed to inspect the reported results without exposing draft-only manuscript artifacts.
+
+The public release intentionally excludes the LaTeX source file and BibTeX bibliography. Only figures used in the submitted manuscript are included.
 
 <p align="center">
   <img src="assets/framework.png" width="860" alt="Overall DRAD-CF-MPC framework">
 </p>
 
-## Highlights
+## ✨ Highlights
 
 - **State-to-consequence modeling**: malware diffusion in the cyber layer is linked to affected physical service and restoration burden.
 - **Physics-aware affected service metric**: cyber infection is evaluated through a CPPS service-impact proxy rather than as a purely cyber count.
 - **Interpretable candidate defenses**: fixed baselines, dynamic risk-aware defense, and hybrid policies are evaluated under the same observed state.
 - **Counterfactual MPC selection**: candidate policies are compared with common-random-number rollouts from the same state.
 - **Safe-Guarded switching**: adaptive switching is accepted only when the predicted improvement over the baseline passes a conservative safeguard test.
-- **Compact reproducibility package**: the released tables preserve the manuscript results and `quick_check.py` verifies the main table and terminology.
+- **Compact reproducibility package**: the released tables preserve the manuscript results and `quick_check.py` verifies the main table, PAS terminology, and Python syntax.
 
-## Repository Structure
+## 🗂 Repository Structure
 
 ```text
 DRAD-CF-MPC
 ├── assets/                 # README figures converted from paper-used figures only
 ├── logs/                   # main-run execution log
 ├── outputs/tables/         # released CSV tables used by the manuscript
-├── paper/                  # LaTeX manuscript and paper-used figures
+├── paper/figures/          # submitted-paper figure files only
 ├── src/                    # simulation and defense code
 ├── CITATION.cff
 ├── LICENSE
@@ -34,7 +45,7 @@ DRAD-CF-MPC
 └── requirements.txt
 ```
 
-## Method Overview
+## 🧠 Method Overview
 
 The malware process follows a protected SEID-style cyber-state model. Protected nodes are unavailable for infection and transmission in the current defense horizon.
 
@@ -44,7 +55,7 @@ The malware process follows a protected SEID-style cyber-state model. Protected 
 
 The proposed controller evaluates candidate defense policies from the same observed cyber-physical state, scores their counterfactual rollouts by degradation and recovery indicators, and implements adaptive switching only after the Safe-Guard test.
 
-## Installation
+## 🔨 Installation
 
 ```bash
 git clone https://github.com/VhoCheng/DRAD-CF-MPC.git
@@ -55,7 +66,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Quick Check
+## 🚀 Quick Check
 
 Run:
 
@@ -69,7 +80,7 @@ The check verifies that:
 - PAS terminology is used consistently in the released code and tables,
 - all released Python files pass syntax compilation.
 
-## Reproducing the Main Experiment
+## 🔁 Reproducing the Main Experiment
 
 The main experiment evaluates seven defense strategies over five cyber-physical coupling patterns, three attacker-information levels, six defense budgets, and eleven attack onset times.
 
@@ -87,7 +98,7 @@ The reported configuration uses:
 
 The full run can take several hours depending on the machine. The released CSV files in `outputs/tables/` preserve the manuscript result values.
 
-## Main Result Table
+## 📊 Main Result Table
 
 The main strategy-level comparison is stored in `outputs/tables/experiment_strategy_summary_parallel.csv`.
 
@@ -101,7 +112,7 @@ The main strategy-level comparison is stored in `outputs/tables/experiment_strat
 | RP | 0.567 | 0.611 | 11.529 | 0.647 | 0.244 |
 | NP | 0.786 | 0.848 | 17.968 | 0.449 | 0.152 |
 
-## Paper-used Figures
+## 🖼 Paper-used Figures
 
 The README shows each paper figure at most once. The overall framework and malware propagation/protection figures are already shown above, so this section visualizes the remaining paper-used evidence figures. Historical or discarded manuscript figures are intentionally excluded from this public release.
 
@@ -123,7 +134,7 @@ The README shows each paper figure at most once. The overall framework and malwa
   <img src="./assets/sensitivity_analysis.png" width="760" alt="Sensitivity analysis">
 </p>
 
-## Released Tables
+## 📁 Released Tables
 
 Important CSV files:
 
@@ -133,19 +144,11 @@ Important CSV files:
 - `outputs/tables/figure*_used.csv`: released figure-level data used in the manuscript.
 - `outputs/tables/comm_features.csv`, `power_features.csv`, and `coupling_*.csv`: CPPS benchmark features and coupling maps.
 
-## Manuscript Source
+## 📦 Package Scope
 
-The LaTeX source is provided under `paper/`:
+This package is designed for GitHub release and reproducibility checking. It includes runnable code, result CSV files, paper-used figures, and a run log. It does not include the LaTeX manuscript source or the BibTeX bibliography.
 
-```text
-paper/main.tex
-paper/cas-refs.bib
-paper/figures/
-```
-
-The `paper/figures/` directory contains only the figures referenced by `paper/main.tex`.
-
-## Authors
+## 👥 Authors
 
 | Author | Affiliation | Email |
 |---|---|---|
@@ -155,7 +158,7 @@ The `paper/figures/` directory contains only the figures referenced by `paper/ma
 | Yongxiang Xia | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | xiayx@hdu.edu.cn |
 | Xi Chen | Department of Artificial Intelligence, China Electric Power Research Institute, Beijing 100192, China | xc@ieee.org |
 
-## Citation
+## 📝 Citation
 
 If you use this repository, please cite the accompanying manuscript:
 
@@ -168,6 +171,6 @@ If you use this repository, please cite the accompanying manuscript:
 }
 ```
 
-## License
+## 📜 License
 
 This repository is released under the MIT License.
