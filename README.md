@@ -154,7 +154,7 @@ This package is designed for GitHub release and reproducibility checking. It inc
 |---|---|---|
 | Weihao Cheng | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | weihao_cheng@hdu.edu.cn |
 | Haicheng Tu | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | tuhc@hdu.edu.cn |
-| Youjia Ling | School of Accounting, Hangzhou Dianzi University, Hangzhou 310018, China | lingyoujia@hdu.edu.cn |
+| Youjia Ling | Hangzhou Dianzi University, Hangzhou 310018, China | lingyoujia@hdu.edu.cn |
 | Yongxiang Xia | School of Communication Engineering, Hangzhou Dianzi University, Hangzhou 310018, China | xiayx@hdu.edu.cn |
 | Xi Chen | Department of Artificial Intelligence, China Electric Power Research Institute, Beijing 100192, China | xc@ieee.org |
 
