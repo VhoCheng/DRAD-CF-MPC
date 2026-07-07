@@ -144,7 +144,7 @@ Important CSV files:
 
 ## 📦 Package Scope
 
-This package is designed for GitHub release and reproducibility checking. It includes runnable code, result CSV files, paper-used figures, and a run log. It does not include the LaTeX manuscript source or the BibTeX bibliography.
+This package is designed for GitHub release and reproducibility checking. It includes runnable code, result CSV files, paper-used figures, and a run log.
 
 ## 👥 Authors
 
