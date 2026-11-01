@@ -1,0 +1,15 @@
+comm_node,power_node,pattern
+0,3,DDAC
+1,1,DDAC
+4,4,DDAC
+5,5,DDAC
+3,8,DDAC
+6,6,DDAC
+8,12,DDAC
+2,0,DDAC
+7,2,DDAC
+9,9,DDAC
+10,10,DDAC
+11,11,DDAC
+12,13,DDAC
+13,7,DDAC

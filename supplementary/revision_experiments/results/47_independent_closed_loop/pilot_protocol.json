@@ -1,0 +1,37 @@
+{
+  "methods": [
+    "CDP",
+    "LEGACY_EP",
+    "FIXED_EP",
+    "FIXED_EP_NO_DYNAMIC",
+    "FIXED_EP_NO_GUARD",
+    "FIXED_EP_HEURISTIC_GUARD",
+    "FIXED_EP_HEURISTIC_NO_GUARD",
+    "FIXED_EP_SPLIT_GUARD"
+  ],
+  "patterns": [
+    "DDAC",
+    "RC"
+  ],
+  "budgets": [
+    20,
+    40
+  ],
+  "onsets": [
+    90,
+    210
+  ],
+  "seeds": 50,
+  "K_train": 8,
+  "K_guard": 24,
+  "stages": 3,
+  "max_preview_steps": 32,
+  "gamma": 0.1,
+  "kappa": 0.5,
+  "source_hashes": {
+    "drad_mpc.py": "bcf697b0170755e657aa617aec0740d9123111bf20ef05c2bc5d717bb77a1ea6",
+    "seid_malware.py": "113e6f99f3eb8df04d433164b4f74edcc95809dd23595e4588f99f103a6f82aa",
+    "run_experiments_core.py": "81380c0e04e3d56cf9a59b2c5c401ef1df1ebbc06a36fbbf7bb911501ca06c2f"
+  },
+  "note": "New common-state rolling-decision validation, not the original controller."
+}

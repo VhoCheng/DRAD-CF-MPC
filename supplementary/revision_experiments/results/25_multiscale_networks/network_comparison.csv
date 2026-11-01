@@ -1,0 +1,5 @@
+case,data_source,power_nodes,power_graph_edges,in_service_branch_rows,power_graph_components,comm_nodes,comm_edges,comm_average_degree,comm_clustering,total_load_mw,ac_pf_converged,base_voltage_min_pu,base_voltage_max_pu,base_voltage_limit_violations,baseline_branch_loss_mw,coupling_patterns,comm_seed,coupling_seed,runtime_seconds
+IEEE 14-bus,PYPOWER standard case,14,20,20,1,14,24,3.4285714285714284,0.3678571428571429,259.0,True,1.01,1.09,3,13.39327235743183,"['DDAC', 'DDDC', 'DCAC', 'DCDC', 'RC']",42,42,0.096
+IEEE 57-bus,PYPOWER standard case,57,78,80,1,57,110,3.8596491228070176,0.23812468233520864,1250.8,True,0.935932450452374,1.0597974643600618,1,27.863751505570356,"['DDAC', 'DDDC', 'DCAC', 'DCDC', 'RC']",42,42,0.144
+IEEE 118-bus,PYPOWER standard case,118,179,186,1,118,232,3.9322033898305087,0.1735269438659269,4242.0,True,0.9430000000000001,1.05,0,132.86287188870557,"['DDAC', 'DDDC', 'DCAC', 'DCDC', 'RC']",42,42,0.224
+IEEE 300-bus,PYPOWER standard case,300,409,411,1,300,596,3.973333333333333,0.090612622083131,23847.65,True,0.928799261804219,1.0734999999999997,11,408.31558178637533,"['DDAC', 'DDDC', 'DCAC', 'DCDC', 'RC']",42,42,0.97

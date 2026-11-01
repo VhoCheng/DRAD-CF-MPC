@@ -1,0 +1,6 @@
+{
+  "blind_static_vs_local_max_PAS_difference": 0.0,
+  "PAS_lower_is_better": true,
+  "physical_weight_basis": "Fixed IEEE118 coupling proxies",
+  "runtime_scope": "Controller computation, not end-to-end"
+}

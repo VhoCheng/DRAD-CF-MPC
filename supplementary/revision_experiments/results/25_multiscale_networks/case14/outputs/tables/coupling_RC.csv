@@ -1,0 +1,15 @@
+comm_node,power_node,pattern
+0,6,RC
+1,7,RC
+2,9,RC
+3,3,RC
+4,0,RC
+5,11,RC
+6,13,RC
+7,10,RC
+8,5,RC
+9,2,RC
+10,4,RC
+11,12,RC
+12,1,RC
+13,8,RC

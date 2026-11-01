@@ -1,0 +1,28 @@
+{
+  "case": "IEEE 300-bus",
+  "data_source": "PYPOWER standard case",
+  "power_nodes": 300,
+  "power_graph_edges": 409,
+  "in_service_branch_rows": 411,
+  "power_graph_components": 1,
+  "comm_nodes": 300,
+  "comm_edges": 596,
+  "comm_average_degree": 3.973333333333333,
+  "comm_clustering": 0.090612622083131,
+  "total_load_mw": 23847.65,
+  "ac_pf_converged": true,
+  "base_voltage_min_pu": 0.928799261804219,
+  "base_voltage_max_pu": 1.0734999999999997,
+  "base_voltage_limit_violations": 11,
+  "baseline_branch_loss_mw": 408.31558178637533,
+  "coupling_patterns": [
+    "DDAC",
+    "DDDC",
+    "DCAC",
+    "DCDC",
+    "RC"
+  ],
+  "comm_seed": 42,
+  "coupling_seed": 42,
+  "runtime_seconds": 0.97
+}
