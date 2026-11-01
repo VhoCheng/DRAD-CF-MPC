@@ -1,0 +1,5 @@
+{
+  "availability": "FAILED_OR_UNAVAILABLE",
+  "exception": "ModuleNotFoundError(\"No module named 'pandapower'\")",
+  "action": "Do not assert exact physical-model equivalence."
+}

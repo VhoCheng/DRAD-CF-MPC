@@ -1,0 +1,5 @@
+case_size,source_url,source_sha256,source_version,active_branch_count,rated_branch_count,rate_coverage
+14,https://raw.githubusercontent.com/power-grid-lib/pglib-opf/v23.07/pglib_opf_case14_ieee.m,bd5c568621de65e4b0922317010868bc7fa94173807faa10ea8fdbbe77c28106,PGLib-OPF v23.07,20,20,1.0
+57,https://raw.githubusercontent.com/power-grid-lib/pglib-opf/v23.07/pglib_opf_case57_ieee.m,aa3b48f7cbaade2afd69cb3790ef72be981db8494dcef9277bee460f754bdb22,PGLib-OPF v23.07,80,80,1.0
+118,https://raw.githubusercontent.com/power-grid-lib/pglib-opf/v23.07/pglib_opf_case118_ieee.m,b1af0833849040c04babc3700631cff0d9afa66b79c5d3e13ae79bdf516cec78,PGLib-OPF v23.07,186,186,1.0
+300,https://raw.githubusercontent.com/power-grid-lib/pglib-opf/v23.07/pglib_opf_case300_ieee.m,7ecf056d5942135765200ad7ae8791c28f0d35fb1dc888ba2c32dfc950f3c2f5,PGLib-OPF v23.07,411,403,0.9805352798053528

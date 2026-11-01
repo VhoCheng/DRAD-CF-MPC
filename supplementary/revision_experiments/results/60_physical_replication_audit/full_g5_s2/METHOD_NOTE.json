@@ -1,0 +1,14 @@
+{
+  "Exp58_source": "revision_experiments/results/58_cyber_power_sensitivity/full_g5_s2/ALL_PHYSICAL_REPLAYS.csv",
+  "Exp58_sha256": "0faf57a7bc03870f18425de0bb0694218377a995e6e41d0bbfc5a4e2b742cae4",
+  "n_physical_paired_settings": 3840,
+  "n_distinct_trajectories": 960,
+  "n_base_attack_clusters": 240,
+  "n_graph_instances": 15,
+  "assumptions": "Cyber infection implies 10%/30% load interruption at mapped PGLib bus; OPF redispatch allowed.",
+  "limits": [
+    "Do not treat 4 stress settings as independent attack seeds",
+    "When one graph per topology, CI is conditional and graph-level p-value is not computed",
+    "This is an assumption-driven sensitivity replay, not physical closed-loop MPC"
+  ]
+}

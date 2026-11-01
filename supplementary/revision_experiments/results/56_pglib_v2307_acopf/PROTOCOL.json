@@ -1,0 +1,16 @@
+{
+  "pglib_version": "v23.07",
+  "sizes": [
+    14,
+    57,
+    118,
+    300
+  ],
+  "load_scales": [
+    0.9,
+    1.0,
+    1.1
+  ],
+  "N1_per_case": 2,
+  "scope": "Independent AC OPF benchmark; not integrated cyber-physical guarantee"
+}

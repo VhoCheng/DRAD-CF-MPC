@@ -1,0 +1,4 @@
+PGLib-OPF v23.07 benchmark ratings, not measured utility ratings.
+Independent AC OPF load and selected N-1 tests.
+Not integrated cyber-physical closed-loop safety.
+All failures retained in ALL_ACOPF_RUNS.csv.

@@ -1,0 +1,4 @@
+AC OPF study with PGLib v23.07 source data. OPF solver failure is NOT proof of physical infeasibility.
+IEEE300 has 8 in-service branches with unspecified RATE_A in current benchmark, so complete thermal safety is unverified.
+No cyber-to-power closed-loop claim follows from these standalone OPF results.
+Outages are selected high-loading and random, not exhaustive N-1.

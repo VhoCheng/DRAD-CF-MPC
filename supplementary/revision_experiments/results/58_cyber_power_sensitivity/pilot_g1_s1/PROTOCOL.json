@@ -1,0 +1,38 @@
+{
+  "phase": "pilot",
+  "graphs": 1,
+  "seeds": 1,
+  "cases": [
+    [
+      "BA",
+      42,
+      "DDAC",
+      20,
+      90,
+      17000,
+      "partial80",
+      0
+    ]
+  ],
+  "fractions": [
+    0.1,
+    0.3
+  ],
+  "load_factors": [
+    1.0,
+    1.08
+  ],
+  "methods": [
+    "CDP",
+    "CF_STATIC",
+    "CF_LOCAL"
+  ],
+  "source_hashes": {
+    "revision_experiments/results/54_graph_observation_delay/full_g5_s10_start17000/raw_outcomes.csv": "ebd0be1ab1024cb76ffbc42299f1b183cde45adeb8a611608a1f532c6cc5bfe9",
+    "revision_experiments/results/54_graph_observation_delay/full_g5_s10_start17000/FROZEN_PROTOCOL.json": "4db039936e7e015529507e5cb4e9f106321b44dce21857b5f6371831ab4e875d",
+    "tnse_exp54_final.py": "7171fd16f20a3f53f18883df200c657b635d631dd23b5e0103b6174e20bfa2d3",
+    "tnse_exp56_pglib_acopf.py": "9ed3f95fc37474394624b46770b5c08adb67e836f7ce39d23ac76a50532c03c4",
+    "tnse_exp58.py": "47574d1b9b7fe6928197d96d197c064a66b344eef084b61411db8952846c9cd2"
+  },
+  "assumption": "comm-node coupled to power-row, infected terminal nodes interrupt a fixed fraction of PD/QD"
+}

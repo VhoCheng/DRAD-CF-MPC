@@ -1,0 +1,8 @@
+{
+  "rows_verified": 11520,
+  "max_abs_MW_reconstruction_error": 4.547473508864641e-13,
+  "PGLib_118_source_sha256": "b1af0833849040c04babc3700631cff0d9afa66b79c5d3e13ae79bdf516cec78",
+  "DDAC_mapping_sha256": "b3e6914cb6dfa8d789ca2856772c4d44499725a23acb2b9217cf783810290e3a",
+  "RC_mapping_sha256": "81fa292960ddc6fdf0f517b8b59dcc5781236732f23c9468a7cdf19bdc681d2a",
+  "note": "This confirms arithmetic and archived crosswalk, NOT empirically validated cyber-to-bus causality."
+}

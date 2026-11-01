@@ -1,0 +1,6 @@
+ASSUMPTION-BASED sensitivity only: coupling_*.csv maps original pandapower row IDs to PGLib IEEE118 bus row IDs.
+Terminal infectious cyber nodes lead to load INTERRUPTION proportional to a predefined fraction (10% or 30%).
+No measured physical failures; no empirically identified dependence of a bus on a cyber node.
+Controller trajectory replay is checked against archived Exp54 PAS on every case.
+Lower interrupted MW means less assumed load interruption; OPF feasibility is separately recorded.
+AC OPF allows redispatch; does not prove original fixed-dispatch security or closed-loop physical MPC.
