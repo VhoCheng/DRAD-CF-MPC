@@ -1,0 +1,310 @@
+\documentclass[10pt]{article}
+\usepackage{fontspec}\setmainfont{TeXGyreTermesX}
+\usepackage[a4paper,margin=.6in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,booktabs,array,tabularx,makecell,graphicx,enumitem,textcomp,url}
+\usepackage[table]{xcolor}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand\theadfont{\bfseries\footnotesize}
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\second}[1]{\underline{#1}}
+\newcommand{\largest}[1]{\textbf{#1}}
+\newcommand{\tablefoot}[1]{\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize #1\end{minipage}}
+\newenvironment{threeparttable}{}{}
+\newenvironment{tablenotes}[1][]{\par\vspace{2pt}\begin{minipage}{.98\linewidth}\begin{list}{}{\leftmargin=0pt\labelwidth=0pt\itemsep=0pt\parsep=0pt}}{\end{list}\end{minipage}}
+\definecolor{TableHeader}{HTML}{E8EEF7}
+\definecolor{RowProposed}{HTML}{E7F4EA}
+\definecolor{RowBaseline}{HTML}{EAF1FB}
+\definecolor{RowRisk}{HTML}{FFF3E1}
+\definecolor{RowPhysical}{HTML}{F6EFE3}
+\definecolor{RowScenario}{HTML}{EEF7F6}
+\definecolor{RowBudget}{HTML}{F2F6E9}
+\definecolor{RowNeutral}{HTML}{F4F4F4}
+\definecolor{RowWeak}{HTML}{FBEAEA}
+\makeatletter
+\newenvironment{exporttable}{\par\noindent\begin{minipage}{\linewidth}\def\@captype{table}}{\end{minipage}\par}
+\makeatother
+\emergencystretch=3em\hbadness=10000
+\begin{document}
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0}
+\begin{exporttable}
+\centering\small
+\caption{Positioning against representative defense approaches. The comparison describes problem scope, not an empirical performance ranking.}
+\label{tab:related_comparison}
+\begin{tabularx}{\textwidth}{p{0.24\textwidth}XXX}
+\toprule
+Approach & Intervention or emphasis & Relationship to this study & Comparison boundary\\
+\midrule
+Malware-oriented CPPS analysis [8], [9], [10] & Spreading, incubation, dependency, and protection rules & Supplies the malware and coupling motivation & Does not by itself validate this controller's state-continuation interface\\
+Moving-target defense [11], [12] & Changes system characteristics to impede adversarial inference or attacks & Demonstrates established adaptive cyber defense & Intervention space differs from selecting protected cyber nodes\\
+Adaptive nonlinear power-system defense [13] & Adaptive moving-target defense in a dynamic power-system setting & Recent comparator for adaptive-defense positioning & No matched numerical benchmark is claimed here\\
+Dynamic-botnet resiliency [14] & Integrated cyber--physical resiliency under dynamic botnet attacks & Related cross-layer decision setting & Attack model and action space require alignment before numerical comparison\\
+Present architecture & Rollout selection among interpretable protection sets with a baseline acceptance gate & Separates predicted gain, realized loss, and implementation contract & Service proxies and limited rolling validation; no global safety or superiority claim\\
+\bottomrule
+\end{tabularx}
+\end{exporttable}
+\clearpage
+\setcounter{table}{1}
+\begin{exporttable}
+\centering\small
+\caption{Reference parameters and sensitivity profiles. Values are design settings; retrospective sensitivity results do not establish an optimum.}
+\label{tab:weights}
+\begin{tabularx}{\textwidth}{p{.25\textwidth}p{.30\textwidth}X}
+\toprule
+Parameter & Value or profile & Role and qualification\\
+\midrule
+Spreading probabilities & $\beta=.01$, $\alpha=.15$, $\delta=10^{-5}$ & Reference stealthy campaign; probabilities per simulation step\\
+Protection multiplier & $\chi=.2$ in the rolling study & Reduces acquisition of infection, without curing existing E/I states\\
+Objective weights & $(.68,.24,.06,.02)$ & EP, PAS, normalized RT, and negative RI; reference preference profile\\
+Degree-prioritized risk profile & $(.36,.18,.08,.08,.20,.10)$ & Sensitivity comparator; order: degree, betweenness, power degree, capacity, infection, visibility\\
+Distributed-feature risk profile & $(.20,.15,.15,.15,.20,.15)$ & Comprehensive-library reference configuration; also evaluated in the risk-weight sensitivity study\\
+Physical-impact weights & $(.35,.25,.20,.20)$ & Load, capacity feature, degree, betweenness; service-importance proxy\\
+Safe-Guard & $\gamma=.10$, $\kappa=.50$ & Relative margin and uncertainty penalty; $\kappa$ is not a confidence level\\
+Rolling protocol & 3 stages; 8 selection samples; 24 split-confirmation samples; $H\leq32$ & Independent supplemental implementation, distinct from the 20-rollout comprehensive-library scenario preview\\
+\bottomrule
+\end{tabularx}
+\end{exporttable}
+\clearpage
+\setcounter{table}{2}
+\begin{exporttable}
+\centering\small
+\caption{Topology-specific composite-score comparison. Gain is mean CDP EP minus mean adaptive EP; positive gain favors adaptation. Bootstrap intervals use the supplied topology audit.}
+\label{tab:topology_results}
+\begin{tabular}{lrrrrr}
+\toprule
+Family & CDP EP & Adaptive EP & Absolute gain & 95\% interval & Relative gain\\
+\midrule
+BA & .020609 & .022541 & -.001932 & $[-.003335,-.000635]$ & $-9.37\%$\\
+ER & .030505 & .030822 & -.000317 & $[-.002516,.002135]$ & $-1.04\%$\\
+WS & .046370 & .032015 & .014355 & $[.011599,.017422]$ & $30.96\%$\\
+\bottomrule
+\end{tabular}
+\tablefoot{Three graph seeds and 120 paired settings per family. These are results of the recorded supplemental protocol, separate from the policy-library rolling controller.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{3}
+\begin{exporttable}
+\centering\small
+\caption{Cross-scale composite-score gains and serial stage timing. Timing entries are seconds, mean / empirical P95 across eight configurations per size.}
+\label{tab:scale_timing}
+\begin{tabular}{rrrrr}
+\toprule
+IEEE size & Confirmed EP gain vs CDP & Selection-stage time & Confirmation-stage time & Three-method wall mean\\
+\midrule
+14 & $+1.70\%$ & 1.280 / 1.869 & 2.421 / 3.207 & 3.787\\
+57 & $-1.43\%$ & 3.577 / 4.588 & 4.254 / 5.951 & 7.988\\
+118 & $-7.15\%$ & 4.524 / 7.413 & 5.859 / 9.131 & 10.571\\
+300 & $-8.55\%$ & 12.136 / 16.661 & 13.603 / 20.088 & 26.042\\
+\bottomrule
+\end{tabular}
+\tablefoot{Performance uses the cross-scale independently confirmed study; timings use the separate serial timing experiment, one replicate per configuration. The final column includes three methods and is not the latency of one engineering decision. The available timing manifest does not identify a complete CPU/hardware specification; these values are descriptive reference measurements, not a reproducible end-to-end real-time benchmark.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{4}
+\begin{exporttable}
+\centering\small
+\caption{Policy-library rolling component comparisons on the same rolling engine. Gain is PAS of reference B minus PAS of method A, so positive gain favors A.}
+\label{tab:rolling_ablation}
+\begin{tabular}{llrrrr}
+\toprule
+Method A & Reference B & Mean PAS A & Mean PAS B & Gain [95\% interval] & Holm $p$\\
+\midrule
+FULL & CDP & .483687 & .482881 & $-.000806\ [-.001815,.000198]$ & .509\\
+FULL & No dynamic risk & .483687 & .483691 & $.000003\ [-.000421,.000610]$ & 1.000\\
+FULL & No guard & .483687 & .464499 & $-.019188\ [-.025131,-.014649]$ & $1.72\!\times\!10^{-16}$\\
+FULL & Heuristic + guard & .483687 & .483165 & $-.000522\ [-.001445,.000396]$ & .588\\
+Split-confirmation & FULL & .483230 & .483687 & $.000457\ [-.000370,.001365]$ & 1.000\\
+No guard & Heuristic, no guard & .464499 & .506726 & $.042227\ [.037986,.046623]$ & $8.05\!\times\!10^{-50}$\\
+\bottomrule
+\end{tabular}
+\tablefoot{400 paired setting--seed cases, fixed eight settings, three decision stages. ``No guard'' removes the acceptance gate but retains rollout selection. The heuristic comparisons hold guard presence fixed. Intervals and tests follow main manuscript Section~V-C; positive-gain and low-$p$ claims must be read in the sign convention above.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{5}
+\begin{exporttable}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Selected paired observation effects for IEEE118. Positive differences mean worse PAS under the perturbed observation.}
+\label{tab:observation}
+\begin{tabular}{lrr}
+\toprule
+Condition & Stress minus clean [95\% CI] & Holm $p$\\
+\midrule
+10-step delay & $-.005227\ [-.010821,-.000260]$ & 1.000\\
+30-step delay & $.007813\ [.003597,.012406]$ & .0537\\
+20\% missing labels & $-.004453\ [-.010854,.001159]$ & 1.000\\
+5\% false positives & $.005428\ [-.000086,.011526]$ & 1.000\\
+Delay30 + missing20 & $.006501\ [.002440,.010622]$ & .1589\\
+\bottomrule
+\end{tabular}
+\tablefoot{The supplied analysis adjusts 20 stress comparisons across four sizes. Simulation steps have no assumed millisecond conversion. Mean-difference intervals and signed-rank tests concern different statistics.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{6}
+\begin{exporttable}
+\centering\small
+\caption{Corrective ACOPF scope and load-curtailment recovery.}
+\label{tab:physical}
+\begin{tabular}{lrrr}
+\toprule
+Case & OPF profiles & Load scale & Shed MW\\
+\midrule
+14 & 3/3 & -- & --\\
+57 & 2/3 & .908594 & 134.91\\
+118 & 3/3 & -- & --\\
+300 & 2/3 & .896484 & 2912.95\\
+\bottomrule
+\end{tabular}
+\tablefoot{Recovery entries apply only to the initially failed evening-peak profiles. Highest tested feasible uniform-load scales correspond to 9.1406\% and 10.3516\% curtailment. Every case has zero branches with nonplaceholder thermal ratings. A dash means recovery was not required for these tested profiles.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{7}
+\begin{exporttable}\centering\small
+\caption{Key notation and interpretation.}\label{tab:notation}
+\begin{tabularx}{\linewidth}{lX}\toprule
+Symbol & Meaning\\\midrule
+$\mathcal G^c,\mathcal G^p$ & Communication and physical graphs\\
+$\mathbf M,\mathcal C(u)$ & Dependency matrix and buses coupled to cyber node $u$\\
+$z,\bar z$ & Generic node feature and its stated normalized value\\
+$B_d,\Pi,K$ & Protection budget, candidate library and candidate count\\
+$\pi_k,\mathcal U_k$ & Candidate policy and resulting protected node set\\
+$H,N_{\rm cf}$ & Preview horizon and number of rollout samples\\
+$\widehat J_k$ & Estimated finite-horizon proxy objective\\
+$\gamma,\kappa$ & Relative switching margin and standard-error penalty\\
+$\arg\min,\operatorname{Top}_{B_d}$ & Minimizing-candidate and largest-score selection operators\\
+$\epsilon_J,\epsilon_P$ & Hypothetical uniform errors required by the conditional inequalities\\
+\bottomrule\end{tabularx}\end{exporttable}
+\clearpage
+\setcounter{table}{8}
+\begin{exporttable}\centering\small
+\caption{Two-candidate local-information descriptive all-mode means and recorded controller cost. Each method has 9600 outcomes and 28800 decisions.}\label{tab:revised_summary}
+\begin{tabular}{lrr}\toprule Method & Mean PAS & Mean stage computation (ms)\\\midrule
+CDP & 0.281039 & 0.235\\
+CF\_LOCAL & 0.257409 & 54.053\\
+CF\_LOCAL\_NO\_GUARD & 0.257410 & 17.350\\
+CF\_STATIC & 0.271853 & 44.615\\
+LOCAL\_RANK & 0.253506 & 0.213\\
+STATIC\_RANK & 0.266549 & 0.215\\
+\bottomrule\end{tabular}
+\end{exporttable}
+\clearpage
+\setcounter{table}{9}
+\begin{exporttable}\centering
+\small
+\caption{Empirical service-loss and baseline-relative risk in the matched multi-topology study.}\label{tab:reliability_summary}
+\begin{tabularx}{\linewidth}{Xrrrrrr}\toprule
+Method & Mean PAS & P95 & P99 & ES95 & Maximum & $h_b$ (\%)\\\midrule
+CDP & 0.281039 & 0.842478 & 0.914703 & 0.890313 & 0.976345 & 0.00\\
+Direct static ranking & 0.266549 & 0.791291 & 0.858478 & 0.832685 & 0.903361 & 33.67\\
+Direct local ranking & 0.253506 & 0.771157 & 0.846475 & 0.817491 & 0.907737 & 22.75\\
+Static-candidate policy & 0.271853 & 0.813252 & 0.893516 & 0.861866 & 0.976345 & 17.41\\
+Local policy, selection only & 0.257410 & 0.783566 & 0.879093 & 0.841292 & 0.976345 & 13.69\\
+Guarded local policy & 0.257409 & 0.784094 & 0.879093 & 0.841681 & 0.976345 & 13.55\\
+\bottomrule\end{tabularx}\tablefoot{Each method has 9600 paired contexts nested in 15 graphs. $h_b$ is the fraction with PAS greater than the paired CDP outcome by more than $10^{-12}$. ES95 is the mean of the worst 5\% empirical probability mass; quantiles use linear interpolation. CDP has zero regret relative to itself by definition. These are descriptive risk summaries, not physical-safety certificates.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{10}
+\begin{exporttable}\centering
+\small
+\caption{Allocation-conditioned deterioration rate and overall baseline-relative regret.}\label{tab:reliability_conditional}
+\begin{tabularx}{\linewidth}{Xrrrr}\toprule
+Method & $n_{\ne b}$ & $h_{b\mid\ne b}$ (\%) & Mean $r_b^+$ & ES95 $r_b^+$\\\midrule
+CDP & 0 & -- & 0.000000 & 0.000000\\
+Direct static ranking & 9600 & 33.67 & 0.008728 & 0.080762\\
+Direct local ranking & 9600 & 22.75 & 0.006201 & 0.075645\\
+Static-candidate policy & 5950 & 28.08 & 0.004332 & 0.059451\\
+Local policy, selection only & 7133 & 18.42 & 0.003868 & 0.060493\\
+Guarded local policy & 7106 & 18.31 & 0.003805 & 0.059749\\
+\bottomrule\end{tabularx}\tablefoot{$n_{\ne b}$ counts episodes with at least one executed protected-node set different from the CDP set at the decision state of that method. $h_{b\mid\ne b}$ uses those episodes as denominator. $r_b^+=\max(\mathrm{PAS}_m-\mathrm{PAS}_b,0)$ is positive paired regret. Regret summaries use all 9600 contexts; these episode measures do not identify individual-switch causal harm.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{11}
+\begin{exporttable}\centering
+\small
+\caption{Complete acceptance-margin and uncertainty-penalty replay grid.}\label{tab:reliability_grid}
+\begin{tabularx}{\linewidth}{YYrrrrr}\toprule
+$\gamma$ & $\kappa$ & Mean PAS & $h_b$ (\%) & P95 & P99 & ES95\\\midrule
+CDP & -- & 0.037909 & 0.00 & 0.188005 & 0.378308 & 0.286322\\
+0.00 & 0.00 & 0.046351 & 30.83 & 0.225770 & 0.460345 & 0.348629\\
+0.00 & 0.25 & 0.044584 & 29.17 & 0.213528 & 0.390752 & 0.334428\\
+0.00 & 0.50 & 0.042590 & 26.67 & 0.207520 & 0.371176 & 0.314430\\
+0.00 & 0.75 & 0.042981 & 21.17 & 0.214240 & 0.390897 & 0.332163\\
+0.00 & 1.00 & 0.040324 & 15.50 & 0.213528 & 0.380944 & 0.309433\\
+0.05 & 0.00 & 0.046608 & 29.83 & 0.227534 & 0.460345 & 0.350439\\
+0.05 & 0.25 & 0.044837 & 28.33 & 0.214240 & 0.391554 & 0.336691\\
+0.05 & 0.50 & 0.042652 & 26.17 & 0.207520 & 0.371956 & 0.315734\\
+0.05 & 0.75 & 0.042982 & 21.17 & 0.214240 & 0.390897 & 0.332163\\
+0.05 & 1.00 & 0.040324 & 15.50 & 0.213528 & 0.380944 & 0.309433\\
+0.10 & 0.00 & 0.045744 & 28.67 & 0.225479 & 0.391554 & 0.342489\\
+0.10 & 0.25 & 0.044930 & 27.83 & 0.214240 & 0.391554 & 0.337252\\
+0.10 & 0.50 & 0.042746 & 25.67 & 0.207520 & 0.371956 & 0.316296\\
+0.10 & 0.75 & 0.043051 & 20.83 & 0.214240 & 0.390897 & 0.332163\\
+0.10 & 1.00 & 0.040401 & 15.50 & 0.213528 & 0.380944 & 0.309433\\
+0.15 & 0.00 & 0.045730 & 27.83 & 0.227534 & 0.391554 & 0.342693\\
+0.15 & 0.25 & 0.045043 & 27.17 & 0.225479 & 0.391554 & 0.337518\\
+0.15 & 0.50 & 0.042887 & 25.33 & 0.213432 & 0.371956 & 0.316960\\
+0.15 & 0.75 & 0.043117 & 20.50 & 0.225479 & 0.390897 & 0.330936\\
+0.15 & 1.00 & 0.040279 & 15.17 & 0.213528 & 0.380944 & 0.307005\\
+0.20 & 0.00 & 0.043799 & 26.67 & 0.225479 & 0.382557 & 0.321389\\
+0.20 & 0.25 & 0.043274 & 26.17 & 0.214114 & 0.371956 & 0.316152\\
+0.20 & 0.50 & 0.042669 & 24.83 & 0.213432 & 0.371956 & 0.318348\\
+0.20 & 0.75 & 0.042833 & 20.33 & 0.225479 & 0.390897 & 0.330936\\
+0.20 & 1.00 & 0.039995 & 15.00 & 0.213432 & 0.380944 & 0.307001\\
+\bottomrule\end{tabularx}\tablefoot{Every cell uses the same 600 paired single-decision replay cases. The 25 cells reuse cases and are not independent replications. This comprehensive-library replay differs from the three-stage local-information study. All cells and all observed tail patterns are retained. The paired mean PAS gain relative to CDP is negative in all 25 cells; lower harm frequency under stricter settings therefore characterizes risk filtering, rather than universal mean dominance.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{12}
+\begin{exporttable}\centering
+\small
+\caption{All topology, observation and delay groups of the guarded local policy.}\label{tab:reliability_groups}
+\begin{tabularx}{\linewidth}{llrrrrr}\toprule
+Graph & Observation & Delay & Mean gain vs CDP & $h_b$ (\%) & P95 & P99\\\midrule
+BA & Blind & 0 & +0.000000 & 0.00 & 0.899995 & 0.955611\\
+BA & Blind & 3 & +0.000000 & 0.00 & 0.900323 & 0.955611\\
+BA & Oracle & 0 & +0.064049 & 10.25 & 0.781747 & 0.831602\\
+BA & Oracle & 3 & +0.060309 & 9.75 & 0.794469 & 0.834237\\
+BA & 50\% recall & 0 & +0.021006 & 31.50 & 0.853929 & 0.883073\\
+BA & 50\% recall & 3 & +0.018730 & 30.50 & 0.858506 & 0.885658\\
+BA & 80\% recall & 0 & +0.043663 & 16.00 & 0.810253 & 0.853268\\
+BA & 80\% recall & 3 & +0.041729 & 16.75 & 0.819084 & 0.865905\\
+ER & Blind & 0 & +0.000000 & 0.00 & 0.684435 & 0.780111\\
+ER & Blind & 3 & +0.000000 & 0.00 & 0.689445 & 0.780111\\
+ER & Oracle & 0 & +0.048294 & 10.75 & 0.571615 & 0.643949\\
+ER & Oracle & 3 & +0.047394 & 11.50 & 0.575317 & 0.654253\\
+ER & 50\% recall & 0 & +0.016776 & 33.50 & 0.629301 & 0.718599\\
+ER & 50\% recall & 3 & +0.017249 & 31.75 & 0.639132 & 0.720503\\
+ER & 80\% recall & 0 & +0.033032 & 18.75 & 0.610902 & 0.677468\\
+ER & 80\% recall & 3 & +0.032921 & 18.75 & 0.610960 & 0.683181\\
+WS & Blind & 0 & +0.000000 & 0.00 & 0.281726 & 0.392362\\
+WS & Blind & 3 & +0.000000 & 0.00 & 0.281726 & 0.392362\\
+WS & Oracle & 0 & +0.027866 & 6.50 & 0.234031 & 0.322163\\
+WS & Oracle & 3 & +0.026179 & 7.25 & 0.236892 & 0.322374\\
+WS & 50\% recall & 0 & +0.013114 & 23.25 & 0.269443 & 0.350037\\
+WS & 50\% recall & 3 & +0.012321 & 25.25 & 0.269443 & 0.350037\\
+WS & 80\% recall & 0 & +0.021908 & 11.00 & 0.255640 & 0.329445\\
+WS & 80\% recall & 3 & +0.020569 & 12.25 & 0.255640 & 0.329396\\
+\bottomrule\end{tabularx}\tablefoot{Each row contains 400 paired contexts nested in five graphs. Positive mean gain favors the guarded local policy. All 24 broad groups have nonnegative mean gain; this aggregation is not an all-configuration guarantee. At the finer 192-cell resolution, 143 means favor the policy, 48 blind controls tie and one cell has gain $-0.001252$ (BA, DDAC, budget20, onset90, 50\% recall, delay3; 50 contexts). The complete finer-resolution CSV accompanies the source package.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{13}
+\begin{exporttable}\centering
+\small
+\caption{Complete fixed-graph independent-confirmation development sweep.}\label{tab:confirmation_development}
+\begin{tabularx}{\linewidth}{YYrrrrr}\toprule
+$\gamma$ & $\kappa$ & Mean PAS & $h_b$ (\%) & P95 & P99 & ES95\\\midrule
+0.00 & 0.00 & 0.442661 & 12.50 & 0.939860 & 0.969039 & 0.963671\\
+0.00 & 0.50 & 0.443493 & 10.42 & 0.939860 & 0.969039 & 0.963671\\
+0.00 & 1.00 & 0.446600 & 10.42 & 0.939860 & 0.969039 & 0.963671\\
+0.02 & 0.00 & 0.446410 & 10.42 & 0.948390 & 0.977752 & 0.973040\\
+0.02 & 0.50 & 0.445817 & 8.33 & 0.948390 & 0.977752 & 0.973040\\
+0.02 & 1.00 & 0.449167 & 8.33 & 0.948390 & 0.977752 & 0.973040\\
+0.05 & 0.00 & 0.454536 & 8.33 & 0.948390 & 0.976630 & 0.972045\\
+0.05 & 0.50 & 0.454536 & 8.33 & 0.948390 & 0.976630 & 0.972045\\
+0.05 & 1.00 & 0.455727 & 8.33 & 0.948390 & 0.976630 & 0.972045\\
+0.10 & 0.00 & 0.462592 & 2.08 & 0.948390 & 0.976630 & 0.972045\\
+0.10 & 0.50 & 0.462592 & 2.08 & 0.948390 & 0.976630 & 0.972045\\
+0.10 & 1.00 & 0.462592 & 2.08 & 0.948390 & 0.976630 & 0.972045\\
+\bottomrule\end{tabularx}\tablefoot{Each cell has 48 paired validation contexts on one fixed BA graph. ES95 uses the empirical probability-mass convention defined in this section. These reused development cases do not provide 12 independent test cohorts and are not the final multi-topology local-information evaluation. A separate 200-case holdout evaluates the configuration selected during development.}
+\end{exporttable}
+\clearpage
+\end{document}

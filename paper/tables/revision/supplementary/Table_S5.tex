@@ -1,0 +1,18 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Policy-library rolling component comparisons on the same rolling engine. Gain is PAS of reference B minus PAS of method A, so positive gain favors A.}
+\label{tab:rolling_ablation}
+\begin{tabular}{llrrrr}
+\toprule
+Method A & Reference B & Mean PAS A & Mean PAS B & Gain [95\% interval] & Holm $p$\\
+\midrule
+FULL & CDP & .483687 & .482881 & $-.000806\ [-.001815,.000198]$ & .509\\
+FULL & No dynamic risk & .483687 & .483691 & $.000003\ [-.000421,.000610]$ & 1.000\\
+FULL & No guard & .483687 & .464499 & $-.019188\ [-.025131,-.014649]$ & $1.72\!\times\!10^{-16}$\\
+FULL & Heuristic + guard & .483687 & .483165 & $-.000522\ [-.001445,.000396]$ & .588\\
+Split-confirmation & FULL & .483230 & .483687 & $.000457\ [-.000370,.001365]$ & 1.000\\
+No guard & Heuristic, no guard & .464499 & .506726 & $.042227\ [.037986,.046623]$ & $8.05\!\times\!10^{-50}$\\
+\bottomrule
+\end{tabular}
+\tablefoot{400 paired setting--seed cases, fixed eight settings, three decision stages. ``No guard'' removes the acceptance gate but retains rollout selection. The heuristic comparisons hold guard presence fixed. Intervals and tests follow main manuscript Section~V-C; positive-gain and low-$p$ claims must be read in the sign convention above.}
+\end{table}

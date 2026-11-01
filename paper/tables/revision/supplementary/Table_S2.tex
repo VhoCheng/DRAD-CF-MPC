@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Reference parameters and sensitivity profiles. Values are design settings; retrospective sensitivity results do not establish an optimum.}
+\label{tab:weights}
+\begin{tabularx}{\textwidth}{p{.25\textwidth}p{.30\textwidth}X}
+\toprule
+Parameter & Value or profile & Role and qualification\\
+\midrule
+Spreading probabilities & $\beta=.01$, $\alpha=.15$, $\delta=10^{-5}$ & Reference stealthy campaign; probabilities per simulation step\\
+Protection multiplier & $\chi=.2$ in the rolling study & Reduces acquisition of infection, without curing existing E/I states\\
+Objective weights & $(.68,.24,.06,.02)$ & EP, PAS, normalized RT, and negative RI; reference preference profile\\
+Degree-prioritized risk profile & $(.36,.18,.08,.08,.20,.10)$ & Sensitivity comparator; order: degree, betweenness, power degree, capacity, infection, visibility\\
+Distributed-feature risk profile & $(.20,.15,.15,.15,.20,.15)$ & Comprehensive-library reference configuration; also evaluated in the risk-weight sensitivity study\\
+Physical-impact weights & $(.35,.25,.20,.20)$ & Load, capacity feature, degree, betweenness; service-importance proxy\\
+Safe-Guard & $\gamma=.10$, $\kappa=.50$ & Relative margin and uncertainty penalty; $\kappa$ is not a confidence level\\
+Rolling protocol & 3 stages; 8 selection samples; 24 split-confirmation samples; $H\leq32$ & Independent supplemental implementation, distinct from the 20-rollout comprehensive-library scenario preview\\
+\bottomrule
+\end{tabularx}
+\end{table}

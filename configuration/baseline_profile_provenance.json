@@ -1,0 +1,28 @@
+{
+  "study": "comprehensive-policy-library-baseline",
+  "risk_profile": "distributed-feature",
+  "feature_order": [
+    "comm_degree",
+    "comm_betweenness",
+    "power_degree",
+    "power_capacity",
+    "infection_risk",
+    "uncertainty"
+  ],
+  "weights": [
+    0.2,
+    0.15,
+    0.15,
+    0.15,
+    0.2,
+    0.15
+  ],
+  "basis": "Corresponding user author explicitly confirmed the weights used for the comprehensive baseline experiment.",
+  "confirmation_date": "2026-10-28",
+  "scope": "Standalone DRAD risk score and the DRAD_SCORE candidate in the comprehensive policy library; rank-ensemble weights remain separately defined.",
+  "release_action": "Main experiment runner now passes and records this profile explicitly.",
+  "historical_source_hash_verified": false,
+  "full_baseline_rerun_performed_for_this_release": false,
+  "recorded_results_modified": false,
+  "supplementary_protocols": "Frozen supplementary source, configurations, result files and their manifests are unchanged."
+}

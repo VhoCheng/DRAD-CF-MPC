@@ -1,0 +1,15 @@
+\begin{table*}[!t]
+\centering\small
+\caption{Additional matched rolling comparisons for the comprehensive policy library, using a distinct continuation protocol from Table~\ref{tab:incremental_contribution}. Gain is PAS of reference B minus PAS of method A, so positive gain favors A.}
+\label{tab:rolling_main}
+\begin{tabular}{llrrrr}
+\toprule
+Method A & Reference B & Mean PAS A & Mean PAS B & Gain [95\% interval] & Holm $p$\\
+\midrule
+FULL & CDP & .483687 & .482881 & $-.000806\ [-.001815,.000198]$ & .509\\
+FULL & No dynamic risk & .483687 & .483691 & $.000003\ [-.000421,.000610]$ & 1.000\\
+FULL & No guard & .483687 & .464499 & $-.019188\ [-.025131,-.014649]$ & $1.72\!\times\!10^{-16}$\\
+\bottomrule
+\end{tabular}
+\tablefoot{400 paired setting--seed cases, fixed eight settings, three decision stages. ``No guard'' removes the acceptance gate but retains rollout selection. The complete six-row comparison is provided in Supplementary Material Table S5. Intervals and tests follow Section~\ref{subsec:revision_protocol}; positive-gain and low-$p$ claims must be read in the sign convention above.}
+\end{table*}

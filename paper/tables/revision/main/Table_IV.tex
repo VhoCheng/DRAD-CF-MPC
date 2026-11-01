@@ -1,0 +1,89 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{threeparttable}
+\caption{Comprehensive policy-library scenario-preview comparison. EP is the success-discounted composite score; PAS and RT/RI/RE are service and algebraic recovery proxies.}
+\label{tab:main_performance_summary}
+\begin{tabular}{lccccccc}
+\toprule
+\rowcolor{TableHeader}
+Strategy 
+& Mean $\mathrm{EP}_{\max}\downarrow$ 
+& Mean PAS$\downarrow$ 
+& Mean RT$\downarrow$ 
+& Mean RI$\uparrow$ 
+& Mean RE$\uparrow$
+& EP gain vs NP
+& EP gain vs CDP \\
+\midrule
+\rowcolor{RowProposed}
+DRAD-CF-MPC 
+& \best{0.289} 
+& \best{0.306} 
+& \best{6.638} 
+& \best{0.827} 
+& \best{0.444} 
+& \best{63.2\%} 
+& \best{3.0\%} \\
+\rowcolor{RowBaseline}
+CDP         
+& \second{0.298} 
+& \second{0.315} 
+& \second{6.765} 
+& \second{0.822} 
+& \second{0.439} 
+& \second{62.1\%} 
+& -- \\
+\rowcolor{RowRisk}
+DRAD-score        
+& 0.348 
+& 0.369 
+& 7.657 
+& 0.796 
+& 0.402 
+& 55.7\% 
+& $-16.8\%$ \\
+\rowcolor{RowPhysical}
+CP          
+& 0.465 
+& 0.499 
+& 9.697 
+& 0.716 
+& 0.319 
+& 40.8\% 
+& $-56.0\%$ \\
+\rowcolor{RowPhysical}
+PDP         
+& 0.465 
+& 0.503 
+& 9.770 
+& 0.714 
+& 0.316 
+& 40.8\% 
+& $-56.0\%$ \\
+\rowcolor{RowNeutral}
+RP          
+& 0.567 
+& 0.611 
+& 11.529 
+& 0.647 
+& 0.244 
+& 27.9\% 
+& $-90.3\%$ \\
+\rowcolor{RowWeak}
+NP          
+& 0.786 
+& 0.848 
+& 17.968 
+& 0.449 
+& 0.152 
+& -- 
+& $-163.8\%$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Note: Arrows indicate the preferred direction. Bold and underlined values denote numerical best and second-best results, respectively, within this scenario-preview comparison; they do not indicate statistical significance. Failed attacks already enter PAS as zero, so EP discounts success frequency twice.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

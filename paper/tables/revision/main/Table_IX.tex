@@ -1,0 +1,15 @@
+\begin{table*}[!t]
+\centering\small
+\caption{Separate PGLib electrical checks, retaining all 18 cases per system. Screened branches pass a conservative postcheck filter; the last column does not count all ratings provided by the source.}
+\label{tab:physical_scope}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Checked success & Solver failure & Island & Success, partial postcheck & Screened / active branches\\
+\midrule
+IEEE14 & 17 & 1 & 0 & 0 & 20/20\\
+IEEE57 & 15 & 3 & 0 & 0 & 80/80\\
+IEEE118 & 18 & 0 & 0 & 0 & 186/186\\
+IEEE300 & 0 & 7 & 5 & 6 & 403/411\\
+\bottomrule
+\end{tabular}
+\end{table*}

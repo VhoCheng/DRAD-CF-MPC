@@ -1,0 +1,10 @@
+# Scientific packages reported in the supplied environment snapshot.
+# This is an observation record, not a complete lockfile or inferred version list.
+joblib==1.6.0
+matplotlib==3.10.9
+networkx==3.4.2
+numpy==2.2.6
+packaging==26.3
+pandas==2.3.3
+pillow==12.3.0
+tqdm==4.70.1

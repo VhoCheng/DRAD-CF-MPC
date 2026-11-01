@@ -1,0 +1,18 @@
+\begin{table}[!htbp]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Selected paired observation effects for IEEE118. Positive differences mean worse PAS under the perturbed observation.}
+\label{tab:observation}
+\begin{tabular}{lrr}
+\toprule
+Condition & Stress minus clean [95\% CI] & Holm $p$\\
+\midrule
+10-step delay & $-.005227\ [-.010821,-.000260]$ & 1.000\\
+30-step delay & $.007813\ [.003597,.012406]$ & .0537\\
+20\% missing labels & $-.004453\ [-.010854,.001159]$ & 1.000\\
+5\% false positives & $.005428\ [-.000086,.011526]$ & 1.000\\
+Delay30 + missing20 & $.006501\ [.002440,.010622]$ & .1589\\
+\bottomrule
+\end{tabular}
+\tablefoot{The supplied analysis adjusts 20 stress comparisons across four sizes. Simulation steps have no assumed millisecond conversion. Mean-difference intervals and signed-rank tests concern different statistics.}
+\end{table}

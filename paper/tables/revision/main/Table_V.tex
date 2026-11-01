@@ -1,0 +1,37 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{threeparttable}
+\caption{Scenario-level gains over CDP for the comprehensive policy library. The 6.20\% mean of relative scenario gains differs from the 3.0\% gain of pooled means.}
+\label{tab:scenario_improvement_cdp}
+\begin{tabular}{lccccc}
+\toprule
+\rowcolor{TableHeader}
+Coupling pattern 
+& Mean EP gain 
+& Median EP gain 
+& Min. EP gain 
+& Max. EP gain 
+& Positive cases \\
+\midrule
+\rowcolor{RowScenario}
+DCAC & 5.06\% & 4.60\% & $-9.13\%$ & 19.37\% & 72.22\% \\
+\rowcolor{RowBaseline}
+DCDC & 5.28\% & 2.69\% & $-8.58\%$ & 27.04\% & 55.56\% \\
+\rowcolor{RowProposed}
+DDAC & \best{7.97\%} & \best{9.69\%} & $-10.36\%$ & 23.38\% & 72.22\% \\
+\rowcolor{RowRisk}
+DDDC & 5.41\% & 1.38\% & $-22.46\%$ & \best{34.34\%} & 50.00\% \\
+\rowcolor{RowPhysical}
+RC & 7.29\% & 3.00\% & $-25.28\%$ & 29.46\% & 72.22\% \\
+\midrule
+\rowcolor{RowProposed}
+Overall & \best{6.20\%} & \best{3.77\%} & $-25.28\%$ & \best{34.34\%} & \best{64.44\%} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Note: Positive cases are scenario-budget combinations in which the composite EP score is lower than CDP. A positive fraction is descriptive and is not a significance test. Overall values summarize a different aggregation than pooled strategy means.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

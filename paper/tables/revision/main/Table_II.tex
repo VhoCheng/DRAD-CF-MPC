@@ -1,0 +1,35 @@
+\begin{table*}[tbp]
+\centering
+\small
+\begin{threeparttable}
+\caption{Comprehensive candidate policy families. The number of executable candidates is state/variant dependent (8--12 in the separate rolling records).}
+\label{tab:candidate_policies}
+\begin{tabularx}{0.96\textwidth}{l l X}
+\toprule
+\rowcolor{TableHeader}
+Policy & Main criterion & Engineering interpretation \\
+\midrule
+\rowcolor{RowWeak}
+NP & No protection & Unprotected reference baseline. \\
+\rowcolor{RowNeutral}
+RP & Random selection & Non-informative defense without cyber or physical knowledge. \\
+\rowcolor{RowBaseline}
+CDP & Communication degree & Protects communication hubs to suppress malware diffusion. \\
+\rowcolor{RowPhysical}
+PDP & Power-layer importance & Protects nodes associated with physically important buses. \\
+\rowcolor{RowPhysical}
+CP & Capacity-proxy protection & Protects nodes coupled to high-capacity or high-impact buses. \\
+\rowcolor{RowPhysical}
+PHYSICS & Physical-impact score & Protects nodes whose coupled buses have high physics-informed impact scores. \\
+\rowcolor{RowScenario}
+HYBRID & Cyber--physical weighted score & Balances communication centrality and physical consequence. \\
+\rowcolor{RowRisk}
+DRAD-score & Dynamic risk-aware score & Uses topology, physical consequence, infection pressure, and information exposure. \\
+\rowcolor{RowRisk}
+Rank-ensemble & Rank aggregation & Combines cyber, physical, and infection-based rankings. \\
+\rowcolor{RowProposed}
+CDP-PHYSICS / CDP-PDP & CDP plus physical/PDP supplement & Keeps communication-hub coverage while adding physical-consequence awareness. \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table*}

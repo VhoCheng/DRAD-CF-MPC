@@ -141,7 +141,7 @@ def candidate_cdp_pdp_mix_nodes(pattern, defense_budget, table_dir="outputs/tabl
 
 def candidate_drad_score_nodes(pattern, defense_budget, attack_information_ratio=0.5,
                                active_nodes=None, exposed_nodes=None,
-                               table_dir="outputs/tables", seed=42):
+                               table_dir="outputs/tables", seed=42, risk_weights=None):
     risk_table = compute_dynamic_risk_score(
         pattern=pattern,
         attack_information_ratio=attack_information_ratio,
@@ -150,7 +150,7 @@ def candidate_drad_score_nodes(pattern, defense_budget, attack_information_ratio
         protected_nodes=None,
         table_dir=table_dir,
         seed=seed,
-        weights={
+        weights=risk_weights if risk_weights is not None else {
             "comm_degree": 0.36,
             "comm_betweenness": 0.18,
             "power_degree": 0.08,
@@ -210,7 +210,7 @@ def candidate_rank_ensemble_nodes(pattern, defense_budget, attack_information_ra
 
 def generate_candidate_policies(pattern, defense_budget, attack_information_ratio=0.5,
                                 active_nodes=None, exposed_nodes=None,
-                                table_dir="outputs/tables", seed=42):
+                                table_dir="outputs/tables", seed=42, risk_weights=None):
     candidates = {}
     for policy in ["CDP", "PDP", "CP", "RP"]:
         candidates[policy] = select_protected_nodes(
@@ -226,7 +226,8 @@ def generate_candidate_policies(pattern, defense_budget, attack_information_rati
     candidates["CDP_PHYSICS_90"] = candidate_cdp_physics_mix_nodes(pattern, defense_budget, 0.90, table_dir)
     candidates["CDP_PDP_90"] = candidate_cdp_pdp_mix_nodes(pattern, defense_budget, table_dir)
     candidates["DRAD_SCORE"] = candidate_drad_score_nodes(
-        pattern, defense_budget, attack_information_ratio, active_nodes, exposed_nodes, table_dir, seed
+        pattern, defense_budget, attack_information_ratio, active_nodes, exposed_nodes, table_dir, seed,
+        risk_weights=risk_weights,
     )
     candidates["RANK_ENSEMBLE"] = candidate_rank_ensemble_nodes(
         pattern, defense_budget, attack_information_ratio, active_nodes, exposed_nodes, table_dir, seed
@@ -306,7 +307,7 @@ def select_drad_mpc_protected_nodes(defense_budget, pattern="RC", attack_informa
                                     infection_rate=0.01, activation_rate=0.15,
                                     detection_rate=0.00001, lookahead_runs=20,
                                     switch_margin=0.10, confidence_k=0.50,
-                                    table_dir="outputs/tables", seed=42):
+                                    table_dir="outputs/tables", seed=42, risk_weights=None):
     defense_budget = int(defense_budget)
     if defense_budget <= 0:
         return [], {
@@ -325,6 +326,7 @@ def select_drad_mpc_protected_nodes(defense_budget, pattern="RC", attack_informa
         exposed_nodes=exposed_nodes,
         table_dir=table_dir,
         seed=seed,
+        risk_weights=risk_weights,
     )
     if "CDP" not in candidates:
         candidates["CDP"] = select_protected_nodes(

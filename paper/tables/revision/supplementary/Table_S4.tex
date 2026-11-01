@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Cross-scale composite-score gains and serial stage timing. Timing entries are seconds, mean / empirical P95 across eight configurations per size.}
+\label{tab:scale_timing}
+\begin{tabular}{rrrrr}
+\toprule
+IEEE size & Confirmed EP gain vs CDP & Selection-stage time & Confirmation-stage time & Three-method wall mean\\
+\midrule
+14 & $+1.70\%$ & 1.280 / 1.869 & 2.421 / 3.207 & 3.787\\
+57 & $-1.43\%$ & 3.577 / 4.588 & 4.254 / 5.951 & 7.988\\
+118 & $-7.15\%$ & 4.524 / 7.413 & 5.859 / 9.131 & 10.571\\
+300 & $-8.55\%$ & 12.136 / 16.661 & 13.603 / 20.088 & 26.042\\
+\bottomrule
+\end{tabular}
+\tablefoot{Performance uses the cross-scale independently confirmed study; timings use the separate serial timing experiment, one replicate per configuration. The final column includes three methods and is not the latency of one engineering decision. The available timing manifest does not identify a complete CPU/hardware specification; these values are descriptive reference measurements, not a reproducible end-to-end real-time benchmark.}
+\end{table}

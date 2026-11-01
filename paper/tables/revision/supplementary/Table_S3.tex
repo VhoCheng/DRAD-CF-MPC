@@ -1,0 +1,15 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Topology-specific composite-score comparison. Gain is mean CDP EP minus mean adaptive EP; positive gain favors adaptation. Bootstrap intervals use the supplied topology audit.}
+\label{tab:topology_results}
+\begin{tabular}{lrrrrr}
+\toprule
+Family & CDP EP & Adaptive EP & Absolute gain & 95\% interval & Relative gain\\
+\midrule
+BA & .020609 & .022541 & -.001932 & $[-.003335,-.000635]$ & $-9.37\%$\\
+ER & .030505 & .030822 & -.000317 & $[-.002516,.002135]$ & $-1.04\%$\\
+WS & .046370 & .032015 & .014355 & $[.011599,.017422]$ & $30.96\%$\\
+\bottomrule
+\end{tabular}
+\tablefoot{Three graph seeds and 120 paired settings per family. These are results of the recorded supplemental protocol, separate from the policy-library rolling controller.}
+\end{table}

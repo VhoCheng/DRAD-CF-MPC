@@ -1,0 +1,31 @@
+\begin{fixedtable}\centering
+\small
+\caption{All topology, observation and delay groups of the guarded local policy.}\label{tab:reliability_groups}
+\begin{tabularx}{\linewidth}{llrrrrr}\toprule
+Graph & Observation & Delay & Mean gain vs CDP & $h_b$ (\%) & P95 & P99\\\midrule
+BA & Blind & 0 & +0.000000 & 0.00 & 0.899995 & 0.955611\\
+BA & Blind & 3 & +0.000000 & 0.00 & 0.900323 & 0.955611\\
+BA & Oracle & 0 & +0.064049 & 10.25 & 0.781747 & 0.831602\\
+BA & Oracle & 3 & +0.060309 & 9.75 & 0.794469 & 0.834237\\
+BA & 50\% recall & 0 & +0.021006 & 31.50 & 0.853929 & 0.883073\\
+BA & 50\% recall & 3 & +0.018730 & 30.50 & 0.858506 & 0.885658\\
+BA & 80\% recall & 0 & +0.043663 & 16.00 & 0.810253 & 0.853268\\
+BA & 80\% recall & 3 & +0.041729 & 16.75 & 0.819084 & 0.865905\\
+ER & Blind & 0 & +0.000000 & 0.00 & 0.684435 & 0.780111\\
+ER & Blind & 3 & +0.000000 & 0.00 & 0.689445 & 0.780111\\
+ER & Oracle & 0 & +0.048294 & 10.75 & 0.571615 & 0.643949\\
+ER & Oracle & 3 & +0.047394 & 11.50 & 0.575317 & 0.654253\\
+ER & 50\% recall & 0 & +0.016776 & 33.50 & 0.629301 & 0.718599\\
+ER & 50\% recall & 3 & +0.017249 & 31.75 & 0.639132 & 0.720503\\
+ER & 80\% recall & 0 & +0.033032 & 18.75 & 0.610902 & 0.677468\\
+ER & 80\% recall & 3 & +0.032921 & 18.75 & 0.610960 & 0.683181\\
+WS & Blind & 0 & +0.000000 & 0.00 & 0.281726 & 0.392362\\
+WS & Blind & 3 & +0.000000 & 0.00 & 0.281726 & 0.392362\\
+WS & Oracle & 0 & +0.027866 & 6.50 & 0.234031 & 0.322163\\
+WS & Oracle & 3 & +0.026179 & 7.25 & 0.236892 & 0.322374\\
+WS & 50\% recall & 0 & +0.013114 & 23.25 & 0.269443 & 0.350037\\
+WS & 50\% recall & 3 & +0.012321 & 25.25 & 0.269443 & 0.350037\\
+WS & 80\% recall & 0 & +0.021908 & 11.00 & 0.255640 & 0.329445\\
+WS & 80\% recall & 3 & +0.020569 & 12.25 & 0.255640 & 0.329396\\
+\bottomrule\end{tabularx}\tablefoot{Each row contains 400 paired contexts nested in five graphs. Positive mean gain favors the guarded local policy. All 24 broad groups have nonnegative mean gain; this aggregation is not an all-configuration guarantee. At the finer 192-cell resolution, 143 means favor the policy, 48 blind controls tie and one cell has gain $-0.001252$ (BA, DDAC, budget20, onset90, 50\% recall, delay3; 50 contexts). The complete finer-resolution CSV accompanies the source package.}
+\end{fixedtable}

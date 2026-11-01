@@ -1,0 +1,13 @@
+\begin{table}[!htbp]\centering
+\small
+\caption{Empirical service-loss and baseline-relative risk in the matched multi-topology study.}\label{tab:reliability_summary}
+\begin{tabularx}{\linewidth}{Xrrrrrr}\toprule
+Method & Mean PAS & P95 & P99 & ES95 & Maximum & $h_b$ (\%)\\\midrule
+CDP & 0.281039 & 0.842478 & 0.914703 & 0.890313 & 0.976345 & 0.00\\
+Direct static ranking & 0.266549 & 0.791291 & 0.858478 & 0.832685 & 0.903361 & 33.67\\
+Direct local ranking & 0.253506 & 0.771157 & 0.846475 & 0.817491 & 0.907737 & 22.75\\
+Static-candidate policy & 0.271853 & 0.813252 & 0.893516 & 0.861866 & 0.976345 & 17.41\\
+Local policy, selection only & 0.257410 & 0.783566 & 0.879093 & 0.841292 & 0.976345 & 13.69\\
+Guarded local policy & 0.257409 & 0.784094 & 0.879093 & 0.841681 & 0.976345 & 13.55\\
+\bottomrule\end{tabularx}\tablefoot{Each method has 9600 paired contexts nested in 15 graphs. $h_b$ is the fraction with PAS greater than the paired CDP outcome by more than $10^{-12}$. ES95 is the mean of the worst 5\% empirical probability mass; quantiles use linear interpolation. CDP has zero regret relative to itself by definition. These are descriptive risk summaries, not physical-safety certificates.}
+\end{table}

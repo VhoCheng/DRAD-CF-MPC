@@ -1,0 +1,13 @@
+\begin{table}[!htbp]\centering
+\small
+\caption{Allocation-conditioned deterioration rate and overall baseline-relative regret.}\label{tab:reliability_conditional}
+\begin{tabularx}{\linewidth}{Xrrrr}\toprule
+Method & $n_{\ne b}$ & $h_{b\mid\ne b}$ (\%) & Mean $r_b^+$ & ES95 $r_b^+$\\\midrule
+CDP & 0 & -- & 0.000000 & 0.000000\\
+Direct static ranking & 9600 & 33.67 & 0.008728 & 0.080762\\
+Direct local ranking & 9600 & 22.75 & 0.006201 & 0.075645\\
+Static-candidate policy & 5950 & 28.08 & 0.004332 & 0.059451\\
+Local policy, selection only & 7133 & 18.42 & 0.003868 & 0.060493\\
+Guarded local policy & 7106 & 18.31 & 0.003805 & 0.059749\\
+\bottomrule\end{tabularx}\tablefoot{$n_{\ne b}$ counts episodes with at least one executed protected-node set different from the CDP set at the decision state of that method. $h_{b\mid\ne b}$ uses those episodes as denominator. $r_b^+=\max(\mathrm{PAS}_m-\mathrm{PAS}_b,0)$ is positive paired regret. Regret summaries use all 9600 contexts; these episode measures do not identify individual-switch causal harm.}
+\end{table}

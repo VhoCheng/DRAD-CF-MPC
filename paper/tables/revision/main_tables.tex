@@ -1,0 +1,371 @@
+\documentclass[10pt]{article}
+\usepackage{fontspec}\setmainfont{TeXGyreTermesX}
+\usepackage[a4paper,margin=.6in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,booktabs,array,tabularx,makecell,graphicx,enumitem,textcomp,url}
+\usepackage[table]{xcolor}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand\theadfont{\bfseries\footnotesize}
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\second}[1]{\underline{#1}}
+\newcommand{\largest}[1]{\textbf{#1}}
+\newcommand{\tablefoot}[1]{\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize #1\end{minipage}}
+\newenvironment{threeparttable}{}{}
+\newenvironment{tablenotes}[1][]{\par\vspace{2pt}\begin{minipage}{.98\linewidth}\begin{list}{}{\leftmargin=0pt\labelwidth=0pt\itemsep=0pt\parsep=0pt}}{\end{list}\end{minipage}}
+\definecolor{TableHeader}{HTML}{E8EEF7}
+\definecolor{RowProposed}{HTML}{E7F4EA}
+\definecolor{RowBaseline}{HTML}{EAF1FB}
+\definecolor{RowRisk}{HTML}{FFF3E1}
+\definecolor{RowPhysical}{HTML}{F6EFE3}
+\definecolor{RowScenario}{HTML}{EEF7F6}
+\definecolor{RowBudget}{HTML}{F2F6E9}
+\definecolor{RowNeutral}{HTML}{F4F4F4}
+\definecolor{RowWeak}{HTML}{FBEAEA}
+\makeatletter
+\newenvironment{exporttable}{\par\noindent\begin{minipage}{\linewidth}\def\@captype{table}}{\end{minipage}\par}
+\makeatother
+\emergencystretch=3em\hbadness=10000
+\begin{document}
+\renewcommand{\thetable}{\Roman{table}}
+\setcounter{table}{0}
+\begin{exporttable}
+\centering\small
+\caption{Decision scope of representative approaches and the present framework. The rows compare mechanisms, not performance under a common benchmark.}
+\label{tab:related_position}
+\begin{tabularx}{\textwidth}{p{.23\textwidth}p{.29\textwidth}X}
+\toprule
+Approach & Principal mechanism & Connection to the present decision problem\\
+\midrule
+CPPS malware analysis [3], [5], [6] & Spreading, incubation, coupling and protection priorities & Establishes the cross-layer consequence and fixed-ranking comparators.\\
+Moving-target defense [28], [29], [37] & Changes system or control characteristics to impede attacks & Demonstrates adaptive defense with a different intervention space.\\
+Dynamic-botnet resiliency [30] & Coordinates cyber and physical resilience under botnet attacks & Shares the cross-layer motivation; attack models and actions differ.\\
+DRAD-CF-MPC & Same-state previews of interpretable node sets with a CDP-referenced gate & Links infection-aware candidates, predicted consequence and acceptance evidence; matched controls separate their effects.\\
+\bottomrule
+\end{tabularx}
+\end{exporttable}
+\clearpage
+\setcounter{table}{1}
+\begin{exporttable}
+\centering
+\small
+\begin{threeparttable}
+\caption{Comprehensive candidate policy families. The number of executable candidates is state/variant dependent (8--12 in the separate rolling records).}
+\label{tab:candidate_policies}
+\begin{tabularx}{0.96\textwidth}{l l X}
+\toprule
+\rowcolor{TableHeader}
+Policy & Main criterion & Engineering interpretation \\
+\midrule
+\rowcolor{RowWeak}
+NP & No protection & Unprotected reference baseline. \\
+\rowcolor{RowNeutral}
+RP & Random selection & Non-informative defense without cyber or physical knowledge. \\
+\rowcolor{RowBaseline}
+CDP & Communication degree & Protects communication hubs to suppress malware diffusion. \\
+\rowcolor{RowPhysical}
+PDP & Power-layer importance & Protects nodes associated with physically important buses. \\
+\rowcolor{RowPhysical}
+CP & Capacity-proxy protection & Protects nodes coupled to high-capacity or high-impact buses. \\
+\rowcolor{RowPhysical}
+PHYSICS & Physical-impact score & Protects nodes whose coupled buses have high physics-informed impact scores. \\
+\rowcolor{RowScenario}
+HYBRID & Cyber--physical weighted score & Balances communication centrality and physical consequence. \\
+\rowcolor{RowRisk}
+DRAD-score & Dynamic risk-aware score & Uses topology, physical consequence, infection pressure, and information exposure. \\
+\rowcolor{RowRisk}
+Rank-ensemble & Rank aggregation & Combines cyber, physical, and infection-based rankings. \\
+\rowcolor{RowProposed}
+CDP-PHYSICS / CDP-PDP & CDP plus physical/PDP supplement & Keeps communication-hub coverage while adding physical-consequence awareness. \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{exporttable}
+\clearpage
+\setcounter{table}{2}
+\begin{exporttable}
+\centering
+\caption{Reference configuration for the comprehensive policy-library assessment. Rolling and local-information protocols specify their own rollout counts and risk profiles.}
+\label{tab:experimental_configuration}
+\small
+\begin{tabular}{p{0.24\textwidth} p{0.25\textwidth} p{0.40\textwidth}}
+\toprule
+\rowcolor{TableHeader}
+Category & Setting & Description \\
+\midrule
+\rowcolor{RowScenario}
+Physical network & IEEE 118-bus system & Benchmark power system for physical consequence and restoration evaluation. \\
+\rowcolor{RowBaseline}
+Communication network & 118-node BA scale-free network & Heterogeneous cyber topology for malware diffusion. \\
+\rowcolor{RowScenario}
+Coupling patterns & DCAC, DCDC, DDAC, DDDC, RC & Degree-correlated, degree-disassortative, and random mappings. \\
+\rowcolor{RowProposed}
+Defense strategies & NP, RP, CDP, PDP, CP, DRAD-score, DRAD-CF-MPC & Reference policies and the proposed Safe-Guarded controller. \\
+\rowcolor{RowRisk}
+Attacker information & 0.25, 0.50, 1.00 & Limited, partial, and full structural knowledge. \\
+\rowcolor{RowBudget}
+Defense budget & 0, 20, 40, 60, 80, 100 & Number of protected cyber nodes. \\
+\rowcolor{RowPhysical}
+Attack onset time & 0, 30, $\ldots$, 300 & Physical activation time after malware propagation. \\
+\rowcolor{RowScenario}
+Monte Carlo repetitions & 50 per task & Repeated stochastic malware simulations in the comprehensive-library results. \\
+\rowcolor{RowBaseline}
+Counterfactual rollouts & $N_{\mathrm{cf}}=20$ & Common-random-number scenario previews used for candidate comparison. \\
+\rowcolor{RowScenario}
+Rollout horizon & Onset-aligned malware simulation horizon & Candidate policies are evaluated from the observed pre-attack state to the physical activation time. \\
+\rowcolor{RowRisk}
+State-risk coefficients & $\theta_I=1$, $\theta_E=0.75$, $\theta_N=0.5$ & Fixed SEID severity factors used in Eq.~(17). \\
+\rowcolor{RowBudget}
+DRAD-score weights & $\rho_1{=}0.20$, $\rho_2{=}0.15$, $\rho_3{=}0.15$, $\rho_4{=}0.15$, $\rho_5{=}0.20$, $\rho_6{=}0.15$ & Fixed weights in Eq.~(15); communication degree and infection pressure prioritized, physical topology features secondary. \\
+\rowcolor{RowPhysical}
+Objective weights & $\lambda_{\mathrm{EP}}=0.68$, $\lambda_{\mathrm{PAS}}=0.24$, $\lambda_{\mathrm{RT}}=0.06$, $\lambda_{\mathrm{RI}}=0.02$ & Fixed weights used for same-state counterfactual comparison. \\
+\rowcolor{RowRisk}
+Safe-Guard parameters & $\gamma=0.10$, $\kappa=0.50$ & Switching margin and conservativeness coefficient. \\
+\rowcolor{RowNeutral}
+Numerical stabilizer & $\varepsilon_0>0$ & Machine-level constant used only to avoid zero denominators. \\
+\rowcolor{RowScenario}
+Bus-impact weights & $\omega_L=0.35$, $\omega_C=0.25$, $\omega_k=0.20$, $\omega_b=0.20$ & Fixed weights in Eq.~(8); load-demand prioritized, topology features secondary. \\
+\rowcolor{RowPhysical}
+RT normalization & $T_{\mathrm{rec}}^{\max}=21$ & Restoration-time normalization in Eq.~(21). \\
+\rowcolor{RowNeutral}
+Primary metrics & $\mathrm{EP}_{\max}$, PAS, RT, RI, RE & Degradation and restoration indicators. \\
+\bottomrule
+\end{tabular}
+\end{exporttable}
+\clearpage
+\setcounter{table}{3}
+\begin{exporttable}
+\centering
+\small
+\begin{threeparttable}
+\caption{Comprehensive policy-library scenario-preview comparison. EP is the success-discounted composite score; PAS and RT/RI/RE are service and algebraic recovery proxies.}
+\label{tab:main_performance_summary}
+\begin{tabular}{lccccccc}
+\toprule
+\rowcolor{TableHeader}
+Strategy 
+& Mean $\mathrm{EP}_{\max}\downarrow$ 
+& Mean PAS$\downarrow$ 
+& Mean RT$\downarrow$ 
+& Mean RI$\uparrow$ 
+& Mean RE$\uparrow$
+& EP gain vs NP
+& EP gain vs CDP \\
+\midrule
+\rowcolor{RowProposed}
+DRAD-CF-MPC 
+& \best{0.289} 
+& \best{0.306} 
+& \best{6.638} 
+& \best{0.827} 
+& \best{0.444} 
+& \best{63.2\%} 
+& \best{3.0\%} \\
+\rowcolor{RowBaseline}
+CDP         
+& \second{0.298} 
+& \second{0.315} 
+& \second{6.765} 
+& \second{0.822} 
+& \second{0.439} 
+& \second{62.1\%} 
+& -- \\
+\rowcolor{RowRisk}
+DRAD-score        
+& 0.348 
+& 0.369 
+& 7.657 
+& 0.796 
+& 0.402 
+& 55.7\% 
+& $-16.8\%$ \\
+\rowcolor{RowPhysical}
+CP          
+& 0.465 
+& 0.499 
+& 9.697 
+& 0.716 
+& 0.319 
+& 40.8\% 
+& $-56.0\%$ \\
+\rowcolor{RowPhysical}
+PDP         
+& 0.465 
+& 0.503 
+& 9.770 
+& 0.714 
+& 0.316 
+& 40.8\% 
+& $-56.0\%$ \\
+\rowcolor{RowNeutral}
+RP          
+& 0.567 
+& 0.611 
+& 11.529 
+& 0.647 
+& 0.244 
+& 27.9\% 
+& $-90.3\%$ \\
+\rowcolor{RowWeak}
+NP          
+& 0.786 
+& 0.848 
+& 17.968 
+& 0.449 
+& 0.152 
+& -- 
+& $-163.8\%$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Note: Arrows indicate the preferred direction. Bold and underlined values denote numerical best and second-best results, respectively, within this scenario-preview comparison; they do not indicate statistical significance. Failed attacks already enter PAS as zero, so EP discounts success frequency twice.
+\end{tablenotes}
+\end{threeparttable}
+\end{exporttable}
+\clearpage
+\setcounter{table}{4}
+\begin{exporttable}
+\centering
+\small
+\begin{threeparttable}
+\caption{Scenario-level gains over CDP for the comprehensive policy library. The 6.20\% mean of relative scenario gains differs from the 3.0\% gain of pooled means.}
+\label{tab:scenario_improvement_cdp}
+\begin{tabular}{lccccc}
+\toprule
+\rowcolor{TableHeader}
+Coupling pattern 
+& Mean EP gain 
+& Median EP gain 
+& Min. EP gain 
+& Max. EP gain 
+& Positive cases \\
+\midrule
+\rowcolor{RowScenario}
+DCAC & 5.06\% & 4.60\% & $-9.13\%$ & 19.37\% & 72.22\% \\
+\rowcolor{RowBaseline}
+DCDC & 5.28\% & 2.69\% & $-8.58\%$ & 27.04\% & 55.56\% \\
+\rowcolor{RowProposed}
+DDAC & \best{7.97\%} & \best{9.69\%} & $-10.36\%$ & 23.38\% & 72.22\% \\
+\rowcolor{RowRisk}
+DDDC & 5.41\% & 1.38\% & $-22.46\%$ & \best{34.34\%} & 50.00\% \\
+\rowcolor{RowPhysical}
+RC & 7.29\% & 3.00\% & $-25.28\%$ & 29.46\% & 72.22\% \\
+\midrule
+\rowcolor{RowProposed}
+Overall & \best{6.20\%} & \best{3.77\%} & $-25.28\%$ & \best{34.34\%} & \best{64.44\%} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item Note: Positive cases are scenario-budget combinations in which the composite EP score is lower than CDP. A positive fraction is descriptive and is not a significance test. Overall values summarize a different aggregation than pooled strategy means.
+\end{tablenotes}
+\end{threeparttable}
+\end{exporttable}
+\clearpage
+\setcounter{table}{5}
+\begin{exporttable}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{threeparttable}
+\caption{Budget-dependent comparison for the comprehensive policy library. Bold metric entries identify the lower value within the same-budget CDP/adaptive pair; bold EP gain marks the largest gain across budgets.}
+\label{tab:budget_response_results}
+\begin{tabularx}{0.98\textwidth}{cYYYYYYY}
+\toprule
+\rowcolor{TableHeader}
+\makecell{Defense\\budget}
+& \makecell{CDP\\EP$\downarrow$}
+& \makecell{DRAD-CF-MPC\\EP$\downarrow$}
+& \makecell{EP\\gain}
+& \makecell{CDP\\PAS$\downarrow$}
+& \makecell{DRAD-CF-MPC\\PAS$\downarrow$}
+& \makecell{CDP\\RT$\downarrow$}
+& \makecell{DRAD-CF-MPC\\RT$\downarrow$} \\
+\midrule
+\rowcolor{RowWeak}
+0   & 0.786 & 0.786 & 0.0\%  & 0.848 & 0.848 & 17.968 & 17.968 \\
+\rowcolor{RowNeutral}
+20  & 0.466 & \best{0.451} & 3.3\%  & 0.496 & \best{0.483} & 10.217 & \best{9.981} \\
+\rowcolor{RowBaseline}
+40  & \best{0.183} & 0.185 & $-1.0\%$ & \best{0.187} & 0.190 & \best{4.213} & 4.265 \\
+\rowcolor{RowScenario}
+60  & 0.132 & \best{0.122} & 7.7\%  & 0.132 & \best{0.123} & 3.093 & \best{2.938} \\
+\rowcolor{RowBudget}
+80  & 0.125 & \best{0.114} & 8.7\%  & 0.125 & \best{0.115} & 2.799 & \best{2.652} \\
+\rowcolor{RowProposed}
+100 & 0.096 & \best{0.077} & \best{20.0\%} & 0.100 & \best{0.079} & 2.298 & \best{2.025} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Note: Ties are unbolded. Boldface is numerical and does not indicate significance. A negative EP gain means CDP outperforms DRAD-CF-MPC under that budget. EP gains are computed from unrounded simulation outputs; the tabulated EP, PAS, and RT values are rounded to three decimals.
+\end{tablenotes}
+\end{threeparttable}
+\end{exporttable}
+\clearpage
+\setcounter{table}{6}
+\begin{exporttable}
+\centering
+\caption{Baseline component-removal comparison for the comprehensive policy library. The matched rolling validation below provides a complementary controlled attribution analysis.}
+\label{tab:incremental_contribution}
+\small
+\begin{tabular}{lcc}
+\toprule
+\rowcolor{TableHeader}
+Variant & Mean $\mathrm{EP}_{\max}\downarrow$ & Gain vs. NP \\
+\midrule
+\rowcolor{RowWeak}
+NP & 0.786 & 0.0\% \\
+\rowcolor{RowNeutral}
+RP & 0.567 & 27.9\% \\
+\rowcolor{RowBaseline}
+CDP & 0.298 & 62.1\% \\
+\rowcolor{RowRisk}
+DRAD-score & 0.348 & 55.7\% \\
+\rowcolor{RowWeak}
+w/o MPC & 0.341 & 56.6\% \\
+\rowcolor{RowPhysical}
+w/o physical consequence & 0.318 & 59.5\% \\
+\rowcolor{RowScenario}
+w/o Safe-Guard & 0.307 & 61.0\% \\
+\rowcolor{RowProposed}
+Full DRAD-CF-MPC & \best{0.289} & \best{63.2\%} \\
+\bottomrule
+\end{tabular}
+\end{exporttable}
+\clearpage
+\setcounter{table}{7}
+\begin{exporttable}
+\centering\small
+\caption{Additional matched rolling comparisons for the comprehensive policy library, using a distinct continuation protocol from Table~VII. Gain is PAS of reference B minus PAS of method A, so positive gain favors A.}
+\label{tab:rolling_main}
+\begin{tabular}{llrrrr}
+\toprule
+Method A & Reference B & Mean PAS A & Mean PAS B & Gain [95\% interval] & Holm $p$\\
+\midrule
+FULL & CDP & .483687 & .482881 & $-.000806\ [-.001815,.000198]$ & .509\\
+FULL & No dynamic risk & .483687 & .483691 & $.000003\ [-.000421,.000610]$ & 1.000\\
+FULL & No guard & .483687 & .464499 & $-.019188\ [-.025131,-.014649]$ & $1.72\!\times\!10^{-16}$\\
+\bottomrule
+\end{tabular}
+\tablefoot{400 paired setting--seed cases, fixed eight settings, three decision stages. ``No guard'' removes the acceptance gate but retains rollout selection. The complete six-row comparison is provided in Supplementary Material Table S5. Intervals and tests follow Section~\mbox  {V-C}; positive-gain and low-$p$ claims must be read in the sign convention above.}
+\end{exporttable}
+\clearpage
+\setcounter{table}{8}
+\begin{exporttable}
+\centering\small
+\caption{Separate PGLib electrical checks, retaining all 18 cases per system. Screened branches pass a conservative postcheck filter; the last column does not count all ratings provided by the source.}
+\label{tab:physical_scope}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Checked success & Solver failure & Island & Success, partial postcheck & Screened / active branches\\
+\midrule
+IEEE14 & 17 & 1 & 0 & 0 & 20/20\\
+IEEE57 & 15 & 3 & 0 & 0 & 80/80\\
+IEEE118 & 18 & 0 & 0 & 0 & 186/186\\
+IEEE300 & 0 & 7 & 5 & 6 & 403/411\\
+\bottomrule
+\end{tabular}
+\end{exporttable}
+\clearpage
+\end{document}

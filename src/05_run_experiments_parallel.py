@@ -1,6 +1,10 @@
 import os
 import sys
 import pandas as pd
+import argparse
+import json
+from datetime import datetime, timezone
+from pathlib import Path
 from itertools import product
 from tqdm import tqdm
 from joblib import Parallel, delayed
@@ -9,6 +13,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(CURRENT_DIR)
 
 from run_experiments_core import run_single_setting
+from experiment_profiles import DEFAULT_RISK_PROFILE, FEATURE_ORDER, RISK_PROFILES, get_risk_weights
 
 
 def run_one_task(task):
@@ -20,6 +25,7 @@ def run_one_task(task):
         onset_time,
         n_runs,
         lookahead_runs,
+        risk_profile,
     ) = task
 
     actual_budget = 0 if strategy.upper() == "NP" else budget
@@ -32,6 +38,7 @@ def run_one_task(task):
         onset_time=onset_time,
         n_runs=n_runs,
         lookahead_runs=lookahead_runs,
+        risk_profile=risk_profile,
     )
 
     return row
@@ -43,11 +50,13 @@ def run_experiments_parallel(
     attack_information_ratios=None,
     defense_budgets=None,
     onset_times=None,
-    n_runs=20,
+    n_runs=50,
     lookahead_runs=20,
     n_jobs=20,
-    out_dir="outputs/tables",
+    out_dir="outputs/rerun_baseline",
+    risk_profile=DEFAULT_RISK_PROFILE,
 ):
+    risk_weights = get_risk_weights(risk_profile)
     os.makedirs(out_dir, exist_ok=True)
 
     if patterns is None:
@@ -74,6 +83,7 @@ def run_experiments_parallel(
             onset_times,
             [n_runs],
             [lookahead_runs],
+            [risk_profile],
         )
     )
 
@@ -84,6 +94,18 @@ def run_experiments_parallel(
     print(f"n_runs per task: {n_runs}")
     print(f"lookahead_runs per MPC task: {lookahead_runs}")
     print(f"n_jobs: {n_jobs}")
+    print(f"DRAD risk profile: {risk_profile} {tuple(risk_weights.values())}")
+    config = {
+        "study": "comprehensive-policy-library-baseline",
+        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "risk_profile": risk_profile, "drad_feature_order": list(FEATURE_ORDER),
+        "drad_weights": risk_weights, "n_runs": n_runs, "lookahead_runs": lookahead_runs,
+        "patterns": list(patterns), "strategies": list(strategies),
+        "attack_information_ratios": list(attack_information_ratios),
+        "defense_budgets": list(defense_budgets), "onset_times": list(onset_times),
+        "n_jobs": n_jobs, "task_count": len(tasks),
+    }
+    Path(out_dir, "run_configuration.json").write_text(json.dumps(config, indent=2) + "\n")
     print("=" * 80)
 
     rows = Parallel(n_jobs=n_jobs, backend="loky", verbose=5)(
@@ -177,17 +199,28 @@ def run_experiments_parallel(
     return df, opt_df, summary_df
 
 
-if __name__ == "__main__":
-    # 服务器 25 核，先用 20 核比较稳，不要直接 25 核拉满。
-    # 快速验证可以先 n_runs=5, lookahead_runs=5。
-    # 正式实验建议 n_runs=100, lookahead_runs=30。
+def main():
+    parser = argparse.ArgumentParser(description="Comprehensive baseline experiment with explicit DRAD weights.")
+    parser.add_argument("--risk-profile", choices=tuple(RISK_PROFILES), default=DEFAULT_RISK_PROFILE)
+    parser.add_argument("--n-runs", type=int, default=50)
+    parser.add_argument("--lookahead-runs", type=int, default=20)
+    parser.add_argument("--n-jobs", type=int, default=20)
+    parser.add_argument("--out-dir", default="outputs/rerun_baseline")
+    parser.add_argument("--smoke", action="store_true", help="Two small tasks, one repetition and one preview; not the reported experiment.")
+    args = parser.parse_args()
+    if min(args.n_runs, args.lookahead_runs) < 1 or args.n_jobs == 0:
+        parser.error("Repetition counts must be positive and n-jobs cannot be zero.")
+    settings = {}
+    if args.smoke:
+        settings = dict(patterns=["RC"], strategies=["DRAD", "DRAD-CF-MPC"],
+                        attack_information_ratios=[0.5], defense_budgets=[20], onset_times=[120])
     run_experiments_parallel(
-        patterns=["DDAC", "DDDC", "DCAC", "DCDC", "RC"],
-        strategies=["NP", "RP", "CDP", "PDP", "CP", "DRAD", "DRAD-CF-MPC"],
-        attack_information_ratios=[0.25, 0.50, 1.00],
-        defense_budgets=[0, 20, 40, 60, 80, 100],
-        onset_times=list(range(0, 301, 30)),
-        n_runs=50,
-        lookahead_runs=20,
-        n_jobs=20
+        **settings, n_runs=1 if args.smoke else args.n_runs,
+        lookahead_runs=1 if args.smoke else args.lookahead_runs,
+        n_jobs=1 if args.smoke else args.n_jobs, out_dir=args.out_dir,
+        risk_profile=args.risk_profile,
     )
+
+
+if __name__ == "__main__":
+    main()

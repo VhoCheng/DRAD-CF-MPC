@@ -1,0 +1,49 @@
+\begin{table*}[t]
+\centering
+\caption{Reference configuration for the comprehensive policy-library assessment. Rolling and local-information protocols specify their own rollout counts and risk profiles.}
+\label{tab:experimental_configuration}
+\small
+\begin{tabular}{p{0.24\textwidth} p{0.25\textwidth} p{0.40\textwidth}}
+\toprule
+\rowcolor{TableHeader}
+Category & Setting & Description \\
+\midrule
+\rowcolor{RowScenario}
+Physical network & IEEE 118-bus system & Benchmark power system for physical consequence and restoration evaluation. \\
+\rowcolor{RowBaseline}
+Communication network & 118-node BA scale-free network & Heterogeneous cyber topology for malware diffusion. \\
+\rowcolor{RowScenario}
+Coupling patterns & DCAC, DCDC, DDAC, DDDC, RC & Degree-correlated, degree-disassortative, and random mappings. \\
+\rowcolor{RowProposed}
+Defense strategies & NP, RP, CDP, PDP, CP, DRAD-score, DRAD-CF-MPC & Reference policies and the proposed Safe-Guarded controller. \\
+\rowcolor{RowRisk}
+Attacker information & 0.25, 0.50, 1.00 & Limited, partial, and full structural knowledge. \\
+\rowcolor{RowBudget}
+Defense budget & 0, 20, 40, 60, 80, 100 & Number of protected cyber nodes. \\
+\rowcolor{RowPhysical}
+Attack onset time & 0, 30, $\ldots$, 300 & Physical activation time after malware propagation. \\
+\rowcolor{RowScenario}
+Monte Carlo repetitions & 50 per task & Repeated stochastic malware simulations in the comprehensive-library results. \\
+\rowcolor{RowBaseline}
+Counterfactual rollouts & $N_{\mathrm{cf}}=20$ & Common-random-number scenario previews used for candidate comparison. \\
+\rowcolor{RowScenario}
+Rollout horizon & Onset-aligned malware simulation horizon & Candidate policies are evaluated from the observed pre-attack state to the physical activation time. \\
+\rowcolor{RowRisk}
+State-risk coefficients & $\theta_I=1$, $\theta_E=0.75$, $\theta_N=0.5$ & Fixed SEID severity factors used in Eq.~\eqref{eq:malware_state_risk}. \\
+\rowcolor{RowBudget}
+DRAD-score weights & $\rho_1{=}0.20$, $\rho_2{=}0.15$, $\rho_3{=}0.15$, $\rho_4{=}0.15$, $\rho_5{=}0.20$, $\rho_6{=}0.15$ & Fixed weights in Eq.~\eqref{eq:dynamic_risk_score}; communication degree and infection pressure prioritized, physical topology features secondary. \\
+\rowcolor{RowPhysical}
+Objective weights & $\lambda_{\mathrm{EP}}=0.68$, $\lambda_{\mathrm{PAS}}=0.24$, $\lambda_{\mathrm{RT}}=0.06$, $\lambda_{\mathrm{RI}}=0.02$ & Fixed weights used for same-state counterfactual comparison. \\
+\rowcolor{RowRisk}
+Safe-Guard parameters & $\gamma=0.10$, $\kappa=0.50$ & Switching margin and conservativeness coefficient. \\
+\rowcolor{RowNeutral}
+Numerical stabilizer & $\varepsilon_0>0$ & Machine-level constant used only to avoid zero denominators. \\
+\rowcolor{RowScenario}
+Bus-impact weights & $\omega_L=0.35$, $\omega_C=0.25$, $\omega_k=0.20$, $\omega_b=0.20$ & Fixed weights in Eq.~\eqref{eq:bus_impact_score}; load-demand prioritized, topology features secondary. \\
+\rowcolor{RowPhysical}
+RT normalization & $T_{\mathrm{rec}}^{\max}=21$ & Restoration-time normalization in Eq.~\eqref{eq:counterfactual_objective}. \\
+\rowcolor{RowNeutral}
+Primary metrics & $\mathrm{EP}_{\max}$, PAS, RT, RI, RE & Degradation and restoration indicators. \\
+\bottomrule
+\end{tabular}
+\end{table*}

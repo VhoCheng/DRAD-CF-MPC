@@ -1,0 +1,29 @@
+\begin{table}[tbp]
+\centering
+\caption{Baseline component-removal comparison for the comprehensive policy library. The matched rolling validation below provides a complementary controlled attribution analysis.}
+\label{tab:incremental_contribution}
+\small
+\begin{tabular}{lcc}
+\toprule
+\rowcolor{TableHeader}
+Variant & Mean $\mathrm{EP}_{\max}\downarrow$ & Gain vs. NP \\
+\midrule
+\rowcolor{RowWeak}
+NP & 0.786 & 0.0\% \\
+\rowcolor{RowNeutral}
+RP & 0.567 & 27.9\% \\
+\rowcolor{RowBaseline}
+CDP & 0.298 & 62.1\% \\
+\rowcolor{RowRisk}
+DRAD-score & 0.348 & 55.7\% \\
+\rowcolor{RowWeak}
+w/o MPC & 0.341 & 56.6\% \\
+\rowcolor{RowPhysical}
+w/o physical consequence & 0.318 & 59.5\% \\
+\rowcolor{RowScenario}
+w/o Safe-Guard & 0.307 & 61.0\% \\
+\rowcolor{RowProposed}
+Full DRAD-CF-MPC & \best{0.289} & \best{63.2\%} \\
+\bottomrule
+\end{tabular}
+\end{table}

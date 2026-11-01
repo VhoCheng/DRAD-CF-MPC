@@ -1,0 +1,40 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{threeparttable}
+\caption{Budget-dependent comparison for the comprehensive policy library. Bold metric entries identify the lower value within the same-budget CDP/adaptive pair; bold EP gain marks the largest gain across budgets.}
+\label{tab:budget_response_results}
+\begin{tabularx}{0.98\textwidth}{cYYYYYYY}
+\toprule
+\rowcolor{TableHeader}
+\makecell{Defense\\budget}
+& \makecell{CDP\\EP$\downarrow$}
+& \makecell{DRAD-CF-MPC\\EP$\downarrow$}
+& \makecell{EP\\gain}
+& \makecell{CDP\\PAS$\downarrow$}
+& \makecell{DRAD-CF-MPC\\PAS$\downarrow$}
+& \makecell{CDP\\RT$\downarrow$}
+& \makecell{DRAD-CF-MPC\\RT$\downarrow$} \\
+\midrule
+\rowcolor{RowWeak}
+0   & 0.786 & 0.786 & 0.0\%  & 0.848 & 0.848 & 17.968 & 17.968 \\
+\rowcolor{RowNeutral}
+20  & 0.466 & \best{0.451} & 3.3\%  & 0.496 & \best{0.483} & 10.217 & \best{9.981} \\
+\rowcolor{RowBaseline}
+40  & \best{0.183} & 0.185 & $-1.0\%$ & \best{0.187} & 0.190 & \best{4.213} & 4.265 \\
+\rowcolor{RowScenario}
+60  & 0.132 & \best{0.122} & 7.7\%  & 0.132 & \best{0.123} & 3.093 & \best{2.938} \\
+\rowcolor{RowBudget}
+80  & 0.125 & \best{0.114} & 8.7\%  & 0.125 & \best{0.115} & 2.799 & \best{2.652} \\
+\rowcolor{RowProposed}
+100 & 0.096 & \best{0.077} & \best{20.0\%} & 0.100 & \best{0.079} & 2.298 & \best{2.025} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Note: Ties are unbolded. Boldface is numerical and does not indicate significance. A negative EP gain means CDP outperforms DRAD-CF-MPC under that budget. EP gains are computed from unrounded simulation outputs; the tabulated EP, PAS, and RT values are rounded to three decimals.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

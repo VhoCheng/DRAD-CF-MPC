@@ -12,6 +12,7 @@ from seid_malware import simulate_seid_once
 from baseline_defense import select_protected_nodes
 from dynamic_risk_defense import select_drad_protected_nodes
 from drad_mpc import select_drad_mpc_protected_nodes
+from experiment_profiles import DEFAULT_RISK_PROFILE, get_risk_weights
 
 
 def build_comm_graph(n_nodes: int = 118, seed: int = 42):
@@ -94,7 +95,7 @@ def get_preview_state(Gc, onset_time, attack_information_ratio,
 
 def get_drad_nodes_from_pre_attack_state(Gc, onset_time, pattern, attack_information_ratio,
                                          defense_budget, infection_rate, activation_rate,
-                                         detection_rate, seed):
+                                         detection_rate, seed, risk_weights=None):
     preview = get_preview_state(
         Gc=Gc,
         onset_time=onset_time,
@@ -111,6 +112,7 @@ def get_drad_nodes_from_pre_attack_state(Gc, onset_time, pattern, attack_informa
         active_nodes=preview["active_infectious_nodes"],
         exposed_nodes=preview["exposed_nodes"],
         already_protected_nodes=None,
+        weights=risk_weights,
         table_dir="outputs/tables",
         seed=seed,
     )
@@ -119,7 +121,7 @@ def get_drad_nodes_from_pre_attack_state(Gc, onset_time, pattern, attack_informa
 
 def get_drad_mpc_nodes_from_pre_attack_state(Gc, onset_time, pattern, attack_information_ratio,
                                              defense_budget, infection_rate, activation_rate,
-                                             detection_rate, lookahead_runs, seed):
+                                             detection_rate, lookahead_runs, seed, risk_weights=None):
     preview = get_preview_state(
         Gc=Gc,
         onset_time=onset_time,
@@ -142,6 +144,7 @@ def get_drad_mpc_nodes_from_pre_attack_state(Gc, onset_time, pattern, attack_inf
         lookahead_runs=lookahead_runs,
         switch_margin=0.10,
         confidence_k=0.50,
+        risk_weights=risk_weights,
         table_dir="outputs/tables",
         seed=seed,
     )
@@ -151,7 +154,8 @@ def get_drad_mpc_nodes_from_pre_attack_state(Gc, onset_time, pattern, attack_inf
 def run_single_setting(pattern, strategy, attack_information_ratio, defense_budget,
                        onset_time, n_runs=20, lookahead_runs=20,
                        infection_rate=0.01, activation_rate=0.15,
-                       detection_rate=0.00001, seed=42):
+                       detection_rate=0.00001, seed=42, risk_profile=DEFAULT_RISK_PROFILE):
+    risk_weights = get_risk_weights(risk_profile)
     Gc = build_comm_graph(n_nodes=118, seed=42)
     pas_values, failed_values = [], []
     active_counts, exposed_counts, detected_counts = [], [], []
@@ -173,6 +177,7 @@ def run_single_setting(pattern, strategy, attack_information_ratio, defense_budg
                 activation_rate=activation_rate,
                 detection_rate=detection_rate,
                 seed=run_seed,
+                risk_weights=risk_weights,
             )
             selected_policy_records.append("DRAD_SCORE")
             best_before_guard_records.append("DRAD_SCORE")
@@ -190,6 +195,7 @@ def run_single_setting(pattern, strategy, attack_information_ratio, defense_budg
                 detection_rate=detection_rate,
                 lookahead_runs=lookahead_runs,
                 seed=run_seed,
+                risk_weights=risk_weights,
             )
             selected_policy_records.append(meta.get("selected_policy", "UNKNOWN"))
             best_before_guard_records.append(meta.get("best_policy_before_guard", "UNKNOWN"))
@@ -246,6 +252,8 @@ def run_single_setting(pattern, strategy, attack_information_ratio, defense_budg
     return {
         "pattern": pattern,
         "strategy": strategy,
+        "risk_profile": risk_profile,
+        **{f"drad_weight_{key}": value for key, value in risk_weights.items()},
         "attack_information_ratio": attack_information_ratio,
         "defense_budget": defense_budget,
         "onset_time": onset_time,
@@ -271,7 +279,7 @@ def run_single_setting(pattern, strategy, attack_information_ratio, defense_budg
 
 def run_experiments(patterns=None, strategies=None, attack_information_ratios=None,
                     defense_budgets=None, onset_times=None, n_runs=20,
-                    lookahead_runs=20, out_dir="outputs/tables"):
+                    lookahead_runs=20, out_dir="outputs/tables", risk_profile=DEFAULT_RISK_PROFILE):
     os.makedirs(out_dir, exist_ok=True)
     if patterns is None:
         patterns = ["DDAC", "DDDC", "DCAC", "DCDC", "RC"]
@@ -302,6 +310,7 @@ def run_experiments(patterns=None, strategies=None, attack_information_ratios=No
                             onset_time=onset_time,
                             n_runs=n_runs,
                             lookahead_runs=lookahead_runs,
+                            risk_profile=risk_profile,
                         )
                         rows.append(row)
                         pbar.update(1)
