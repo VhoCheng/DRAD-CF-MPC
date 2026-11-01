@@ -1,0 +1,43 @@
+{
+  "experiment": "Experiment 12",
+  "purpose": "Frozen independent holdout evaluation",
+  "source": "Experiment 11 validated implementation",
+  "selected_variant": "Confirm15-Robust",
+  "selection_source": "Experiment 11 development results",
+  "first_stage_rollouts": 5,
+  "confirmation_rollouts": 15,
+  "shortlist_non_cdp": 3,
+  "eta": 0.5,
+  "gamma": 0.1,
+  "kappa": 1.0,
+  "baseline_variants": [
+    "CDP",
+    "Legacy-K5"
+  ],
+  "primary_metric": "Original implementation EP",
+  "diagnostic_metric": "Unconditional PAS",
+  "couplings": [
+    "DDAC",
+    "DDDC",
+    "DCAC",
+    "DCDC",
+    "RC"
+  ],
+  "attack_information_ratios": [
+    0.25,
+    1.0
+  ],
+  "defense_budgets": [
+    20,
+    80
+  ],
+  "attack_onsets": [
+    150,
+    240
+  ],
+  "monte_carlo": 10,
+  "test_base_seed": 20261103,
+  "holdout_scenarios": 40,
+  "parameter_tuning_allowed_on_holdout": false,
+  "source_sha256": "36e8952c8274eda5106b928008f191582382372b2e36abd9275392b0c9e710f6"
+}

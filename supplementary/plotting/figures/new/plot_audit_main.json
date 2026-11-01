@@ -1,0 +1,244 @@
+{
+  "source_sha256": {
+    "data/54_graph_observation_delay/full_g5_s10_start17000/paired_by_topology_observation_delay.csv": "58eae95c7f2cb6082e66453d0c2d9ed04bca2a70d215c917c558971221e06db8",
+    "data/reliability/exp54_risk_overall.csv": "307b0ed44ee07062dc8402c2d2e5b8e28d19595b7b16710cae578518fd3774e8"
+  },
+  "outcome_generation": false,
+  "source_csv_changes": false,
+  "axis_label_points_at_7_1_in": 8.677777777777779,
+  "local_effects": {
+    "size_inches": [
+      7.2,
+      3.65
+    ],
+    "source_rows": 18,
+    "identical_x_limits": [
+      -0.0035,
+      0.043
+    ],
+    "source_interval_semantics": "supplied descriptive graph-bootstrap 95% interval",
+    "value_label_rounding_only": "four decimal places",
+    "mean_and_ci_rows": [
+      {
+        "topology": "BA",
+        "mode": "oracle",
+        "delay": 0,
+        "mean_PAS_gain": 0.0372019717668961,
+        "graph_cluster_CI_low": 0.0342947483556483,
+        "graph_cluster_CI_high": 0.0398064100336801
+      },
+      {
+        "topology": "BA",
+        "mode": "oracle",
+        "delay": 3,
+        "mean_PAS_gain": 0.0359220511818835,
+        "graph_cluster_CI_low": 0.0324565676640694,
+        "graph_cluster_CI_high": 0.0390879756426333
+      },
+      {
+        "topology": "BA",
+        "mode": "partial50",
+        "delay": 0,
+        "mean_PAS_gain": 0.0083393499264204,
+        "graph_cluster_CI_low": 0.0042757784294289,
+        "graph_cluster_CI_high": 0.0115560934934281
+      },
+      {
+        "topology": "BA",
+        "mode": "partial50",
+        "delay": 3,
+        "mean_PAS_gain": 0.0057810326847645,
+        "graph_cluster_CI_low": 0.0014962996999281,
+        "graph_cluster_CI_high": 0.0100657656696009
+      },
+      {
+        "topology": "BA",
+        "mode": "partial80",
+        "delay": 0,
+        "mean_PAS_gain": 0.0218958234842498,
+        "graph_cluster_CI_low": 0.0178168838283979,
+        "graph_cluster_CI_high": 0.0251145760334715
+      },
+      {
+        "topology": "BA",
+        "mode": "partial80",
+        "delay": 3,
+        "mean_PAS_gain": 0.0218732160697414,
+        "graph_cluster_CI_low": 0.017493442550496,
+        "graph_cluster_CI_high": 0.0253822541417881
+      },
+      {
+        "topology": "ER",
+        "mode": "oracle",
+        "delay": 0,
+        "mean_PAS_gain": 0.0337059369987432,
+        "graph_cluster_CI_low": 0.0323677461321711,
+        "graph_cluster_CI_high": 0.034846061825855
+      },
+      {
+        "topology": "ER",
+        "mode": "oracle",
+        "delay": 3,
+        "mean_PAS_gain": 0.0317611932910068,
+        "graph_cluster_CI_low": 0.0289069341771196,
+        "graph_cluster_CI_high": 0.0337836046665394
+      },
+      {
+        "topology": "ER",
+        "mode": "partial50",
+        "delay": 0,
+        "mean_PAS_gain": 0.0111394457914267,
+        "graph_cluster_CI_low": 0.0077660428974514,
+        "graph_cluster_CI_high": 0.0163477913859244
+      },
+      {
+        "topology": "ER",
+        "mode": "partial50",
+        "delay": 3,
+        "mean_PAS_gain": 0.0097508671409778,
+        "graph_cluster_CI_low": 0.004564933078756,
+        "graph_cluster_CI_high": 0.0162309313154106
+      },
+      {
+        "topology": "ER",
+        "mode": "partial80",
+        "delay": 0,
+        "mean_PAS_gain": 0.0212081597447828,
+        "graph_cluster_CI_low": 0.0160911785722631,
+        "graph_cluster_CI_high": 0.0275328695442944
+      },
+      {
+        "topology": "ER",
+        "mode": "partial80",
+        "delay": 3,
+        "mean_PAS_gain": 0.0207375966428046,
+        "graph_cluster_CI_low": 0.0152625354338672,
+        "graph_cluster_CI_high": 0.028352909619138
+      },
+      {
+        "topology": "WS",
+        "mode": "oracle",
+        "delay": 0,
+        "mean_PAS_gain": 0.0201158708015679,
+        "graph_cluster_CI_low": 0.0180669317833846,
+        "graph_cluster_CI_high": 0.0226582431364234
+      },
+      {
+        "topology": "WS",
+        "mode": "oracle",
+        "delay": 3,
+        "mean_PAS_gain": 0.018781634101046,
+        "graph_cluster_CI_low": 0.016835321666103,
+        "graph_cluster_CI_high": 0.0212497834053182
+      },
+      {
+        "topology": "WS",
+        "mode": "partial50",
+        "delay": 0,
+        "mean_PAS_gain": 0.0095521907723407,
+        "graph_cluster_CI_low": 0.0086531138954595,
+        "graph_cluster_CI_high": 0.0107788202220434
+      },
+      {
+        "topology": "WS",
+        "mode": "partial50",
+        "delay": 3,
+        "mean_PAS_gain": 0.0090956682377233,
+        "graph_cluster_CI_low": 0.0076605453013619,
+        "graph_cluster_CI_high": 0.0106634203151627
+      },
+      {
+        "topology": "WS",
+        "mode": "partial80",
+        "delay": 0,
+        "mean_PAS_gain": 0.0154027788779204,
+        "graph_cluster_CI_low": 0.0143303917585391,
+        "graph_cluster_CI_high": 0.0164592060645583
+      },
+      {
+        "topology": "WS",
+        "mode": "partial80",
+        "delay": 3,
+        "mean_PAS_gain": 0.0143764995278312,
+        "graph_cluster_CI_low": 0.0132156106457119,
+        "graph_cluster_CI_high": 0.0158993956520656
+      }
+    ]
+  },
+  "reliability_profile": {
+    "size_inches": [
+      7.2,
+      3.65
+    ],
+    "methods": [
+      "CDP",
+      "LOCAL_RANK",
+      "CF_STATIC",
+      "CF_LOCAL_NO_GUARD",
+      "CF_LOCAL"
+    ],
+    "display_names": {
+      "CDP": "CDP",
+      "LOCAL_RANK": "Direct local",
+      "CF_STATIC": "Static candidate",
+      "CF_LOCAL_NO_GUARD": "Local, no\nconfirmation",
+      "CF_LOCAL": "Guarded local"
+    },
+    "values": [
+      {
+        "method": "CDP",
+        "harmful_fraction": 0.0,
+        "harmful_fraction_descriptive_ci_low": 0.0,
+        "harmful_fraction_descriptive_ci_high": 0.0,
+        "P95_PAS": 0.8424783904611715,
+        "P99_PAS": 0.9147026804942392,
+        "CVaR95_PAS": 0.8903132878084904,
+        "CVaR95_regret": 0.0
+      },
+      {
+        "method": "LOCAL_RANK",
+        "harmful_fraction": 0.2275,
+        "harmful_fraction_descriptive_ci_low": 0.2028125,
+        "harmful_fraction_descriptive_ci_high": 0.2547942708333333,
+        "P95_PAS": 0.7711573831756829,
+        "P99_PAS": 0.8464748333788302,
+        "CVaR95_PAS": 0.8174910643854879,
+        "CVaR95_regret": 0.0756453614439559
+      },
+      {
+        "method": "CF_STATIC",
+        "harmful_fraction": 0.1740625,
+        "harmful_fraction_descriptive_ci_low": 0.1604166666666667,
+        "harmful_fraction_descriptive_ci_high": 0.1863541666666667,
+        "P95_PAS": 0.8132518041977252,
+        "P99_PAS": 0.8935163820425528,
+        "CVaR95_PAS": 0.8618660343523507,
+        "CVaR95_regret": 0.059450844459691
+      },
+      {
+        "method": "CF_LOCAL_NO_GUARD",
+        "harmful_fraction": 0.136875,
+        "harmful_fraction_descriptive_ci_low": 0.1211458333333333,
+        "harmful_fraction_descriptive_ci_high": 0.1534375,
+        "P95_PAS": 0.7835663948793796,
+        "P99_PAS": 0.8790927323923352,
+        "CVaR95_PAS": 0.8412920658874184,
+        "CVaR95_regret": 0.0604927344334093
+      },
+      {
+        "method": "CF_LOCAL",
+        "harmful_fraction": 0.1355208333333333,
+        "harmful_fraction_descriptive_ci_low": 0.1204166666666667,
+        "harmful_fraction_descriptive_ci_high": 0.1514583333333333,
+        "P95_PAS": 0.7840942283091767,
+        "P99_PAS": 0.8790927323923352,
+        "CVaR95_PAS": 0.8416810869240071,
+        "CVaR95_regret": 0.059749287573398
+      }
+    ]
+  },
+  "output_sha256": {
+    "local_effects.pdf": "bdefca5543ad9e69f582a29ae79328282441b0eefb5cdd20382d6abd36896245",
+    "reliability_profile.pdf": "27305db29260af9f17cfc57139a98297565e174fcde542cde46584f3e99c9bbc"
+  }
+}
