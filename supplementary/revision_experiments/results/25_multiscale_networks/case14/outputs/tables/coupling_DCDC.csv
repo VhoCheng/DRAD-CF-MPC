@@ -1,0 +1,15 @@
+comm_node,power_node,pattern
+0,6,DCDC
+1,7,DCDC
+4,10,DCDC
+5,11,DCDC
+3,4,DCDC
+6,9,DCDC
+8,5,DCDC
+2,12,DCDC
+7,13,DCDC
+9,8,DCDC
+10,3,DCDC
+11,1,DCDC
+12,2,DCDC
+13,0,DCDC

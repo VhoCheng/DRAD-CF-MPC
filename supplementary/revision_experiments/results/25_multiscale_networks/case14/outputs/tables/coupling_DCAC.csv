@@ -1,0 +1,15 @@
+comm_node,power_node,pattern
+0,0,DCAC
+1,2,DCAC
+4,1,DCAC
+5,3,DCAC
+3,8,DCAC
+6,13,DCAC
+8,12,DCAC
+2,5,DCAC
+7,9,DCAC
+9,4,DCAC
+10,11,DCAC
+11,10,DCAC
+12,6,DCAC
+13,7,DCAC
